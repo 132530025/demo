@@ -74,16 +74,18 @@ body.light-head .cta .btn.dir,.light .btn.dir{color:var(--ink);border-color:var(
 .eyebrow{font:400 11px/1.5 var(--mono);letter-spacing:.12em;color:var(--dim);text-transform:uppercase}
 .wordmark{font:900 clamp(84px,24vw,250px)/.94 var(--display);text-transform:uppercase}
 .wordmark .w{display:block}
-.wordmark .wd{display:inline-block;overflow:hidden;padding-top:.06em;margin-top:-.06em;vertical-align:top}
+.wordmark .wd{display:inline-block;white-space:nowrap;overflow:hidden;padding-top:.06em;margin-top:-.06em;vertical-align:top}
 .wordmark .ch{display:inline-block}
 .wordmark .sub{display:block;font-weight:800;font-size:.4em;line-height:1;color:var(--dim);margin-top:.22em;letter-spacing:.02em}
 .lead{font-size:17px;line-height:1.45;max-width:36ch;color:#d3d9e1}
 .meta{font:400 11px/1.4 var(--mono);letter-spacing:.08em;color:var(--dim);text-transform:uppercase}
 .meta b{color:var(--print);font-weight:600}
 @media (min-width:900px){
-  .intro{grid-template-columns:1.1fr 1fr;column-gap:64px;padding:100px 40px 56px}
+  .intro{padding:100px 40px 56px}
+  .fx .intro{grid-template-columns:1.1fr 1fr;column-gap:64px}
   .intro .slot{grid-column:2;grid-row:1/span 4;align-self:center;aspect-ratio:75/22}
   .lead{font-size:19px}
+  .wordmark{font-size:clamp(110px,11.5vw,200px)}
 }
 
 .beats{list-style:none;position:relative;z-index:3;display:grid;gap:64px;padding:24px 16px 140px;max-width:1280px;margin:0 auto}
