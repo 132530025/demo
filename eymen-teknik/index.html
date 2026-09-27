@@ -81,14 +81,15 @@ h2{font-size:clamp(26px,6vw,38px);letter-spacing:-.025em;line-height:1.12;font-w
 .adim p{color:var(--muted);font-size:15px;margin-top:4px}
 
 /* konum */
-.harita{border-radius:22px 22px 0 0;overflow:hidden;border:1px solid var(--line);border-bottom:0;height:clamp(300px,55vw,440px);background:var(--line)}
+.konum{display:grid;grid-template-columns:1fr 1fr;gap:32px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px}
+.konum .sol{display:flex;flex-direction:column;align-items:flex-start}
+.harita{flex:1 1 0;align-self:stretch;min-height:140px;margin-bottom:20px;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--line)}
 .harita iframe{width:100%;height:100%;border:0;display:block}
-.konum{display:grid;grid-template-columns:1.1fr 1fr;gap:26px;background:var(--card);border:1px solid var(--line);border-radius:0 0 22px 22px;padding:28px 24px}
 .konum tr.bugun td{color:var(--ink);font-weight:800}
 .konum tr.bugun td:first-child:after{content:"Bugün";margin-left:8px;font-size:12px;font-weight:700;padding:2px 8px;border-radius:999px;background:var(--ink);color:#fff}
 .konum p{font-size:18px;font-weight:700;margin:6px 0 16px}
 .konum table{width:100%;border-collapse:collapse;font-size:15px}
-.konum td{padding:9px 0;border-bottom:1px solid var(--line)}
+.konum td{padding:13px 0;border-bottom:1px solid var(--line)}
 .konum td+td{text-align:right;font-weight:700}
 .etiket{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 .son{padding-top:28px;padding-bottom:20px;color:var(--muted);font-size:13px}
@@ -100,6 +101,7 @@ h2{font-size:clamp(26px,6vw,38px);letter-spacing:-.025em;line-height:1.12;font-w
 @media (max-width:700px){
   .ikili{grid-template-columns:1fr}
   .kisa,.adim,.konum{grid-template-columns:1fr}
+  .harita{flex:none;height:240px}
   .kisa{gap:16px}
   .cta .btn{flex:1 1 100%}
   .top a.tel span{display:none}
@@ -174,9 +176,9 @@ h2{font-size:clamp(26px,6vw,38px);letter-spacing:-.025em;line-height:1.12;font-w
 
 <section id="konum"><div class="w">
   <h2>Nerede, ne zaman?</h2>
-  <div class="harita"><iframe src="https://maps.google.com/maps?q=40.0851211%2C29.5020244%20%28Eymen%20Teknik%29&amp;z=16&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Eymen Teknik harita"></iframe></div>
   <div class="konum">
-    <div>
+    <div class="sol">
+      <div class="harita"><iframe src="https://maps.google.com/maps?q=40.0851211%2C29.5020244%20%28Eymen%20Teknik%29&amp;z=16&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Eymen Teknik harita"></iframe></div>
       <div class="etiket">Adres</div>
       <p>İstiklal Cd., Süleymaniye, İnegöl / Bursa</p>
       <a class="btn wa" href="https://www.google.com/maps/search/?api=1&amp;query=Eymen%20Teknik%20%C4%B0neg%C3%B6l&amp;query_place_id=ChIJoQWcO3zLyxQRrd8_oyjj1-k"><svg style="color:var(--warm)"><use href="#i-pin"/></svg>Yol tarifi al</a>
