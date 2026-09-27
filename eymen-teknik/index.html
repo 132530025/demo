@@ -81,13 +81,17 @@ h2{font-size:clamp(26px,6vw,38px);letter-spacing:-.025em;line-height:1.12;font-w
 .adim p{color:var(--muted);font-size:15px;margin-top:4px}
 
 /* konum */
-.konum{display:grid;grid-template-columns:1.1fr 1fr;gap:26px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px 24px}
+.harita{border-radius:22px 22px 0 0;overflow:hidden;border:1px solid var(--line);border-bottom:0;height:clamp(300px,55vw,440px);background:var(--line)}
+.harita iframe{width:100%;height:100%;border:0;display:block}
+.konum{display:grid;grid-template-columns:1.1fr 1fr;gap:26px;background:var(--card);border:1px solid var(--line);border-radius:0 0 22px 22px;padding:28px 24px}
+.konum tr.bugun td{color:var(--ink);font-weight:800}
+.konum tr.bugun td:first-child:after{content:"Bugün";margin-left:8px;font-size:12px;font-weight:700;padding:2px 8px;border-radius:999px;background:var(--ink);color:#fff}
 .konum p{font-size:18px;font-weight:700;margin:6px 0 16px}
 .konum table{width:100%;border-collapse:collapse;font-size:15px}
 .konum td{padding:9px 0;border-bottom:1px solid var(--line)}
 .konum td+td{text-align:right;font-weight:700}
 .etiket{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
-.son{padding:28px 0 20px;color:var(--muted);font-size:13px}
+.son{padding-top:28px;padding-bottom:20px;color:var(--muted);font-size:13px}
 
 /* alt bar */
 .alt{position:fixed;left:0;right:0;bottom:0;z-index:6;display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(246,243,238,.95);backdrop-filter:blur(8px);border-top:1px solid var(--line)}
@@ -133,7 +137,7 @@ h2{font-size:clamp(26px,6vw,38px);letter-spacing:-.025em;line-height:1.12;font-w
     <a class="btn ara" href="tel:+905065420129"><svg><use href="#i-tel"/></svg>Hemen ara</a>
     <a class="btn wa" href="https://wa.me/905065420129?text=Merhaba%2C%20kombim/klimam%20i%C3%A7in%20servis%20istiyorum."><svg><use href="#i-wa"/></svg>WhatsApp'tan yaz</a>
   </div>
-  <div class="saat"><b></b>Pzt–Cmt 09:00–18:30</div>
+  <a class="saat" id="bugun" href="#konum"><b></b>Çalışma saatleri</a>
 </div>
 
 <section><div class="w">
@@ -168,7 +172,9 @@ h2{font-size:clamp(26px,6vw,38px);letter-spacing:-.025em;line-height:1.12;font-w
   </div>
 </div></section>
 
-<section><div class="w">
+<section id="konum"><div class="w">
+  <h2>Nerede, ne zaman?</h2>
+  <div class="harita"><iframe src="https://maps.google.com/maps?q=40.0851211%2C29.5020244%20%28Eymen%20Teknik%29&amp;z=16&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Eymen Teknik harita"></iframe></div>
   <div class="konum">
     <div>
       <div class="etiket">Adres</div>
@@ -177,7 +183,7 @@ h2{font-size:clamp(26px,6vw,38px);letter-spacing:-.025em;line-height:1.12;font-w
     </div>
     <div>
       <div class="etiket">Çalışma saatleri</div>
-      <table><tr><td>Pazartesi – Cumartesi</td><td>09:00 – 18:30</td></tr><tr><td>Pazar</td><td>Kapalı</td></tr></table>
+      <table id="saatler"><tr data-gun="1"><td>Pazartesi</td><td>09:00 – 18:30</td></tr><tr data-gun="2"><td>Salı</td><td>09:00 – 18:30</td></tr><tr data-gun="3"><td>Çarşamba</td><td>09:00 – 18:30</td></tr><tr data-gun="4"><td>Perşembe</td><td>09:00 – 18:30</td></tr><tr data-gun="5"><td>Cuma</td><td>09:00 – 18:30</td></tr><tr data-gun="6"><td>Cumartesi</td><td>09:00 – 18:30</td></tr><tr data-gun="0"><td>Pazar</td><td>Kapalı</td></tr></table>
     </div>
   </div>
 </div></section>
@@ -189,6 +195,11 @@ h2{font-size:clamp(26px,6vw,38px);letter-spacing:-.025em;line-height:1.12;font-w
   <a class="btn ara" href="tel:+905065420129"><svg><use href="#i-tel"/></svg>Ara</a>
   <a class="btn wa" href="https://wa.me/905065420129?text=Merhaba%2C%20kombim/klimam%20i%C3%A7in%20servis%20istiyorum."><svg><use href="#i-wa"/></svg>WhatsApp</a>
 </nav>
+<script>
+(function(){var r=document.querySelector('#saatler tr[data-gun="'+new Date().getDay()+'"]');if(!r)return;r.className='bugun';
+var s=r.lastChild.textContent,b=document.getElementById('bugun'),acik=!/kapal/i.test(s);
+b.lastChild.textContent=acik?'Bugün açık · '+s:'Bugün kapalı';if(!acik)b.firstChild.style.background='#B0B6C0';})();
+</script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "b08d03382dc6456d9699357890311011"}'></script>
 </body>
 </html>
