@@ -18,6 +18,7 @@ const C = {
   name: 'DuruPak Temizlik',
   phone: '0530 680 38 78',           // ekranda görünen
   wa: '905306803878',                // WhatsApp: ülke kodu + numara, boşluksuz
+  ig: 'durupaktemizlik_16',          // Instagram kullanıcı adı
   address: 'Bursa',
   hours: '',                         // boşsa altbilgide gizlenir
   color: '#1d5fa3',                  // ana marka rengi (logodaki mavi)
@@ -114,6 +115,10 @@ header.scrolled{border-color:var(--line)}
 .svc h3{font-size:18px;margin-bottom:4px}
 .svc p{font-size:14.5px;color:var(--ink-2)}
 .svc .from{display:inline-block;margin-top:10px;font-size:13px;font-weight:700;color:var(--brand)}
+
+/* kurumsal */
+.corp{display:grid;gap:28px;align-items:center}
+.corp img{width:100%;max-width:560px;height:auto;margin:0 auto;border-radius:26px;box-shadow:var(--shadow)}
 
 /* talep formu */
 .calc-sec{background:linear-gradient(180deg,var(--bg),#e8f1f9)}
@@ -226,6 +231,7 @@ footer ul{padding:0}
   .fc1{left:-28px}.fc2{right:-20px}
   .svc-grid{grid-template-columns:repeat(3,1fr)}
   .svc{flex-direction:column;padding:26px}
+  .corp{grid-template-columns:1fr 1fr;gap:56px}
   .calc{grid-template-columns:1.25fr .9fr;align-items:start}
   .panel{padding:32px}
   .result{position:sticky;top:90px;padding:32px}
@@ -318,6 +324,20 @@ footer ul{padding:0}
       <div class="svc rv"><span class="ic"><svg class="i"><use href="#bed"/></svg></span><div><h3>Yatak Yıkama</h3><p>Tek ve çift kişilik yataklar yerinde yıkanır.</p><a class="from" href="#fiyat">Fiyat al →</a></div></div>
       <div class="svc rv"><span class="ic"><svg class="i"><use href="#rug"/></svg></span><div><h3>Halıflex Yıkama</h3><p>Duvardan duvara halıflex, yerinden sökülmeden yıkanır.</p><a class="from" href="#fiyat">Fiyat al →</a></div></div>
     </div>
+  </div>
+</section>
+
+<!-- KURUMSAL -->
+<section id="kurumsal" style="padding-top:0">
+  <div class="wrap corp">
+    <div class="rv">
+      <span class="eyebrow"><svg class="i"><use href="#sparkle"/></svg>Kurumsal</span>
+      <h2>Otel, ofis ve iş yerlerinde halıflex yıkama.</h2>
+      <p class="lead" style="margin-top:12px">İş yerinizin halıflex'ini yerinde yıkıyoruz. Teklif için WhatsApp'tan yazın.</p>
+      <div class="dist" style="margin-top:20px"><span>Otel</span><span>Ofis</span><span>İş yeri</span></div>
+      <div class="ctas"><a class="btn btn-wa" data-wa="Merhaba, iş yerimiz için halıflex yıkama teklifi almak istiyorum."><svg class="i"><use href="#wa"/></svg>Kurumsal Teklif Al</a></div>
+    </div>
+    <img class="rv" src="kurumsal.jpg" alt="DuruPak otel, ofis ve iş yerlerinde halıflex yıkama hizmeti" width="1000" height="1000" loading="lazy">
   </div>
 </section>
 
@@ -436,7 +456,7 @@ footer ul{padding:0}
     <div class="foot">
       <div><div class="logo"><img src="logo-beyaz.png?v=2" alt="DuruPak logo" width="39" height="42"><span data-c="name"></span></div><p>Bursa'da yerinde koltuk, yatak ve halıflex yıkama.</p></div>
       <div><h4>Hizmetler</h4><ul><li>Koltuk Yıkama</li><li>Yatak Yıkama</li><li>Halıflex Yıkama</li></ul></div>
-      <div><h4>İletişim</h4><ul><li><a data-tel><span data-c="phone"></span></a></li><li><a data-wa="Merhaba">WhatsApp</a></li><li data-c="address"></li></ul></div>
+      <div><h4>İletişim</h4><ul><li><a data-tel><span data-c="phone"></span></a></li><li><a data-wa="Merhaba">WhatsApp</a></li><li><a id="ig" target="_blank" rel="noopener"></a></li><li data-c="address"></li></ul></div>
       <div id="hours"><h4>Çalışma saatleri</h4><ul><li data-c="hours"></li></ul></div>
     </div>
     <div class="copy">© <span id="yr"></span> <span data-c="name"></span>. Tüm hakları saklıdır.</div>
@@ -458,6 +478,7 @@ $$('[data-c]').forEach(e => e.textContent = C[e.dataset.c]);
 $$('[data-tel]').forEach(e => e.href = 'tel:' + C.phone.replace(/\s/g, ''));
 $$('[data-wa]').forEach(e => { e.href = wa(e.dataset.wa); e.target = '_blank'; e.rel = 'noopener'; });
 if (!C.hours) $('#hours').remove();
+$('#ig').href = 'https://instagram.com/' + C.ig; $('#ig').textContent = 'Instagram: @' + C.ig;
 $('#yr').textContent = new Date().getFullYear();
 $('#mq').innerHTML = [...C.districts, ...C.districts, ...C.districts, ...C.districts].map(d => `<span>${d}</span>`).join('');
 $('#dist').innerHTML = C.districts.map(d => `<span><svg class="i"><use href="#pin"/></svg>${d}</span>`).join('');
