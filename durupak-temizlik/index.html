@@ -87,12 +87,11 @@ header.scrolled{border-color:var(--line)}
 .hero h1 em::after{content:"";position:absolute;left:0;right:0;bottom:.06em;height:.22em;background:var(--mint);opacity:.55;z-index:-1;border-radius:4px}
 .ctas{display:flex;flex-direction:column;gap:10px;margin-top:26px}
 .hero-img{position:relative}
-.hero-img img{width:100%;height:380px;object-fit:cover;border-radius:28px;box-shadow:var(--shadow);background:var(--mint-2)}
+.hero-img video{display:block;width:100%;max-width:400px;aspect-ratio:478/850;height:auto;margin:0 auto;object-fit:cover;border-radius:28px;box-shadow:var(--shadow);background:var(--mint-2)}
 .float-card{position:absolute;background:#fff;border-radius:16px;padding:12px 14px;box-shadow:var(--shadow);display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600}
 .float-card strong{display:block;font-size:15px}
 .float-card .ic{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;background:var(--mint-2);color:var(--brand)}
 .fc1{left:-6px;bottom:24px;animation:float 7s ease-in-out infinite}
-.fc2{right:-6px;top:22px;animation:float 8s ease-in-out infinite -3s}
 
 /* stats */
 .stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
@@ -150,11 +149,9 @@ select,input[type=date]{width:100%;font:inherit;font-size:16px;padding:13px 14px
 .note{font-size:12px;opacity:.6;margin-top:12px;text-align:center}
 
 /* before after */
-.ba{position:relative;border-radius:26px;overflow:hidden;aspect-ratio:4/3;box-shadow:var(--shadow);--p:50%;user-select:none;background:var(--mint-2)}
+.ba{position:relative;border-radius:26px;overflow:hidden;aspect-ratio:478/470;max-width:620px;margin:0 auto;box-shadow:var(--shadow);--p:50%;user-select:none;background:var(--mint-2)}
 .ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .ba .before{position:absolute;inset:0;clip-path:inset(0 calc(100% - var(--p)) 0 0)}
-.ba .before img{filter:sepia(.55) saturate(.6) brightness(.72) contrast(.92)}
-.ba .before::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 70%,rgba(90,60,20,.35),transparent 35%),radial-gradient(circle at 70% 30%,rgba(90,60,20,.25),transparent 30%),radial-gradient(circle at 50% 90%,rgba(60,40,10,.3),transparent 40%)}
 .ba .bar{position:absolute;top:0;bottom:0;left:var(--p);width:3px;background:#fff;transform:translateX(-50%);pointer-events:none}
 .ba .knob{position:absolute;top:50%;left:var(--p);transform:translate(-50%,-50%);width:52px;height:52px;border-radius:50%;background:#fff;box-shadow:0 6px 20px rgba(0,0,0,.25);display:grid;place-items:center;pointer-events:none;color:var(--deep);font-weight:800}
 .ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
@@ -219,7 +216,6 @@ footer ul{padding:0}
   .ctas{flex-direction:row}
   .stats{grid-template-columns:repeat(4,1fr)}
   .svc-grid{grid-template-columns:1fr 1fr}
-  .ba{aspect-ratio:16/9}
 }
 @media (min-width:900px){
   section{padding:96px 0}
@@ -227,8 +223,7 @@ footer ul{padding:0}
   .call{padding:12px 18px}
   .hero{padding:56px 0 80px}
   .hero-grid{grid-template-columns:1.05fr .95fr;gap:56px}
-  .hero-img img{height:540px}
-  .fc1{left:-28px}.fc2{right:-20px}
+  .fc1{left:-12px}
   .svc-grid{grid-template-columns:repeat(3,1fr)}
   .svc{flex-direction:column;padding:26px}
   .corp{grid-template-columns:1fr 1fr;gap:56px}
@@ -296,9 +291,8 @@ footer ul{padding:0}
       </div>
     </div>
     <div class="hero-img">
-      <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1100&q=75" alt="Temizlik ekibi çalışırken" fetchpriority="high">
+      <video src="tanitim.mp4" poster="video-kapak.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Kirli koltuğun yerinde yıkanması: önce, yıkama ve sonra"></video>
       <div class="float-card fc1"><span class="ic"><svg class="i"><use href="#home"/></svg></span><div><strong>Yerinde yıkama</strong>Evinizden çıkmadan</div></div>
-      <div class="float-card fc2"><span class="ic"><svg class="i"><use href="#pin"/></svg></span><div><strong>8 ilçe</strong>Bursa geneli</div></div>
     </div>
   </div>
   <div class="wrap stats rv" style="margin-top:36px">
@@ -379,11 +373,11 @@ footer ul{padding:0}
     <div class="head rv">
       <span class="eyebrow"><svg class="i"><use href="#sparkle"/></svg>Önce / Sonra</span>
       <h2>Farkı kendiniz görün.</h2>
-      <p class="lead">Çubuğu sağa sola kaydırın.</p>
+      <p class="lead">Kendi işimizden: aynı koltuk, yıkamadan önce ve sonra. Çubuğu sağa sola kaydırın.</p>
     </div>
     <div class="ba rv" id="ba">
-      <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=1400&q=75" alt="Yıkama sonrası üçlü koltuk" loading="lazy">
-      <div class="before"><img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=1400&q=75" alt="" loading="lazy"></div>
+      <img src="sonra.jpg" alt="Yıkama sonrası koltuk" width="478" height="470" loading="lazy">
+      <div class="before"><img src="once.jpg" alt="Yıkama öncesi kirli koltuk" width="478" height="470" loading="lazy"></div>
       <span class="tag t1">ÖNCE</span><span class="tag t2">SONRA</span>
       <div class="bar"></div><div class="knob">⇆</div>
       <input type="range" min="0" max="100" value="50" aria-label="Önce ve sonra fotoğrafını karşılaştır">
