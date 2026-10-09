@@ -176,6 +176,16 @@ select,input[type=date]{width:100%;font:inherit;font-size:16px;padding:13px 14px
 .guar-list b{display:block;font-size:16px}
 .guar-list p{font-size:14px;opacity:.75}
 
+/* yorumlar */
+.rev-row{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 16px 12px;margin:0 -16px;scrollbar-width:none}
+.rev-row::-webkit-scrollbar{display:none}
+.rev{flex:0 0 84%;scroll-snap-align:center;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:14px}
+.rev p{font-size:15.5px}
+.rev .src{display:flex;align-items:center;gap:8px;margin-top:auto;font-size:13px;font-weight:700;color:var(--ink-2)}
+.rev .src svg{color:#1fae5b}
+.rev .g{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;background:#4285f4;color:#fff;font-size:12px}
+.stars{color:#f5a623;letter-spacing:1px}
+
 /* districts */
 .dist{display:flex;flex-wrap:wrap;gap:8px}
 .dist span{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--line);padding:9px 14px;border-radius:99px;font-weight:600;font-size:14px}
@@ -216,6 +226,7 @@ footer ul{padding:0}
   .ctas{flex-direction:row}
   .stats{grid-template-columns:repeat(4,1fr)}
   .svc-grid{grid-template-columns:1fr 1fr}
+  .rev{flex-basis:46%}
 }
 @media (min-width:900px){
   section{padding:96px 0}
@@ -227,6 +238,7 @@ footer ul{padding:0}
   .svc-grid{grid-template-columns:repeat(3,1fr)}
   .svc{flex-direction:column;padding:26px}
   .corp{grid-template-columns:1fr 1fr;gap:56px}
+  .rev-row{display:grid;grid-template-columns:repeat(3,1fr);overflow:visible;margin:0;padding:0}
   .calc{grid-template-columns:1.25fr .9fr;align-items:start}
   .panel{padding:32px}
   .result{position:sticky;top:90px;padding:32px}
@@ -267,7 +279,7 @@ footer ul{padding:0}
       <a href="#hizmetler">Hizmetler</a>
       <a href="#fiyat">Fiyat Al</a>
       <a href="#once-sonra">Önce / Sonra</a>
-      <a href="#bolgeler">Bölgeler</a>
+      <a href="#yorumlar">Yorumlar</a>
       <a href="#sss">SSS</a>
     </nav>
     <a class="call" data-tel><svg class="i"><use href="#phone"/></svg><span>Hemen Ara</span></a>
@@ -408,6 +420,25 @@ footer ul{padding:0}
         <div><span class="ic"><svg class="i"><use href="#wa"/></svg></span><div><b>Fiyat önceden belli</b><p>İşe başlamadan fiyatı WhatsApp'tan öğrenirsiniz.</p></div></div>
         <div><span class="ic"><svg class="i"><use href="#pin"/></svg></span><div><b>8 ilçede hizmet</b><p>Bursa merkez ve çevre ilçelerde adresinize geliyoruz.</p></div></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- YORUMLAR: müşterilerin kendi sözleri (Instagram "Memnuniyet" hikâyeleri, 09.10.2026) -->
+<section id="yorumlar" style="padding-top:0">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow"><svg class="i"><use href="#sparkle"/></svg>Müşteri memnuniyeti</span>
+      <h2>Müşterilerimiz ne diyor?</h2>
+      <p class="lead">Müşterilerimizden gelen mesajlar ve Google yorumları.</p>
+    </div>
+    <div class="rev-row">
+      <div class="rev rv"><p>“Daha önce birkaç firmaya koltuklarımı yıkatmıştım ancak evi resmen su içinde bırakıp gittiler. Sizin yıkamanızdaki hassasiyet ve dikkatli çalışmanız çok güzeldi. Soran herkese tavsiye ediyorum.”</p><span class="src"><svg class="i"><use href="#wa"/></svg>WhatsApp mesajı · Yatak ve sandalye yıkama</span></div>
+      <div class="rev rv"><span class="stars">★★★★★</span><p>“Koltuğum temizlendikten sonra yeni alınmış gibi oldu. Ferahlığı da bonusu oldu. DuruPak gerçekten işinin ehli.”</p><span class="src"><b class="g">G</b>Google yorumu · Sadık Ç.</span></div>
+      <div class="rev rv"><p>“Koltuk takımımızı daha önce de farklı firmalarda yıkatmıştık, fakat DuruPak'ta yıkattığımızda daha önce hiç temizlenmemiş olduğunu fark ettik. Mis gibi kokusu ve tertemiz görüntüsüyle emeğinin hakkını gerçekten veriyor.”</p><span class="src"><svg class="i"><use href="#wa"/></svg>WhatsApp mesajı · Koltuk yıkama</span></div>
+      <div class="rev rv"><p>“Her şey için çok teşekkür ederim, harikasınız. Bu kadarını tahmin etmemiştim. Tavsiye üzerine sizi tercih ettim, çok memnun kaldım.”</p><span class="src"><svg class="i"><use href="#wa"/></svg>WhatsApp mesajı · Koltuk yıkama</span></div>
+      <div class="rev rv"><span class="stars">★★★★★</span><p>“Kaliteli ve güvenilir bir işçilik. Gerçekten herkese öneririm. Ben memnun kaldım, siz de memnun kalırsınız.”</p><span class="src"><b class="g">G</b>Google yorumu · Berat E.</span></div>
+      <div class="rev rv"><p>“Çok çok memnun kaldım. Daha önce birçok koltuk firmasına yıkattım, yerler su olmuştu. Elinize, emeğinize sağlık.”</p><span class="src"><svg class="i"><use href="#wa"/></svg>WhatsApp mesajı · Koltuk yıkama</span></div>
     </div>
   </div>
 </section>
