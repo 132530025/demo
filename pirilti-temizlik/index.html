@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Pırıltı Temizlik | Bursa Ev, Ofis ve İnşaat Sonrası Temizlik</title>
+<meta name="description" content="Bursa'nın 17 ilçesinde sigortalı, garantili ev, ofis ve inşaat sonrası temizlik. 30 saniyede fiyatını hesapla, WhatsApp'tan randevu al.">
+<meta name="theme-color" content="#0b3b3c">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>
+/* ============================================================
+   HER İŞLETME İÇİN SADECE BURAYI DEĞİŞTİR
+   ============================================================ */
+const C = {
+  name: 'Pırıltı Temizlik',
+  phone: '+90 224 000 00 00',        // ekranda görünen
+  wa: '902240000000',                // WhatsApp: ülke kodu + numara, boşluksuz
+  address: 'Nilüfer, Bursa',
+  hours: 'Her gün 08:00 – 20:00',
+  color: '#0e5c5a',                  // ana marka rengi
+  services: {                        // hesaplayıcı: m² başı fiyat + minimum
+    ev:      { t: 'Ev Temizliği',       m2: 28, min: 2200 },
+    ofis:    { t: 'Ofis Temizliği',     m2: 24, min: 2500 },
+    insaat:  { t: 'İnşaat Sonrası',     m2: 48, min: 4500 },
+    tasinma: { t: 'Taşınma Temizliği',  m2: 36, min: 3200 },
+  },
+  extras: {
+    cam:     { t: 'Cam & çerçeve',      p: 650 },
+    dolap:   { t: 'Buzdolabı içi',      p: 350 },
+    firin:   { t: 'Fırın içi',          p: 350 },
+    balkon:  { t: 'Balkon / teras',     p: 450 },
+    utu:     { t: 'Ütü (2 saat)',       p: 600 },
+  },
+  districts: ['Nilüfer','Osmangazi','Yıldırım','Mudanya','Gemlik','İnegöl','Gürsu','Kestel','Mustafakemalpaşa','Karacabey','Orhangazi','İznik','Yenişehir','Orhaneli','Keles','Büyükorhan','Harmancık'],
+};
+document.documentElement.style.setProperty('--brand', C.color);
+document.documentElement.classList.add('js');
+</script>
+<style>
+:root{
+  --ink:#0c2a2b; --ink-2:#536b6c; --bg:#f5f8f6; --card:#fff; --line:#e2eae5;
+  --brand:#0e5c5a; --deep:#0b3b3c; --mint:#7ce0c3; --mint-2:#e3f8f1; --sun:#ffd166;
+  --r:22px; --shadow:0 18px 40px -20px rgba(12,42,43,.35);
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+svg.i{width:1.25em;height:1.25em;flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.wrap{max-width:1160px;margin:0 auto;padding:0 16px}
+section{padding:64px 0}
+h1,h2,h3{line-height:1.12;letter-spacing:-.025em}
+h2{font-size:clamp(28px,6.4vw,44px);font-weight:800}
+.lead{color:var(--ink-2);font-size:clamp(16px,2.4vw,18px)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--brand);background:var(--mint-2);padding:6px 12px;border-radius:99px;margin-bottom:14px}
+.head{max-width:640px;margin-bottom:32px}
+.head p{margin-top:12px}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:inherit;font-weight:700;font-size:16px;padding:16px 22px;border-radius:16px;border:0;cursor:pointer;transition:transform .15s,box-shadow .2s,background .2s}
+.btn:active{transform:scale(.97)}
+.btn-wa{background:#1fae5b;color:#fff;box-shadow:0 10px 24px -10px #1fae5b}
+.btn-wa:hover{background:#18994f}
+.btn-ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
+.btn-ghost:hover{border-color:var(--brand)}
+.btn-dark{background:var(--deep);color:#fff}
+
+/* header */
+header{position:sticky;top:0;z-index:50;background:rgba(245,248,246,.85);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .2s}
+header.scrolled{border-color:var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;letter-spacing:-.02em}
+.logo b{width:36px;height:36px;border-radius:11px;background:var(--brand);display:grid;place-items:center;color:var(--mint)}
+.links{display:none;gap:28px;font-weight:600;font-size:15px;color:var(--ink-2)}
+.links a:hover{color:var(--ink)}
+.call{display:flex;align-items:center;gap:8px;font-weight:700;font-size:14px;padding:10px 14px;border-radius:12px;background:var(--deep);color:#fff}
+
+/* hero */
+.hero{position:relative;padding:28px 0 56px;overflow:hidden}
+.hero::before{content:"";position:absolute;width:620px;height:620px;right:-260px;top:-200px;background:radial-gradient(circle,var(--mint) 0,transparent 65%);opacity:.45;z-index:-1}
+.bubble{position:absolute;border-radius:50%;background:radial-gradient(circle at 30% 30%,#fff 0,rgba(255,255,255,.4) 25%,rgba(124,224,195,.25) 60%,rgba(124,224,195,.05) 100%);border:1px solid rgba(255,255,255,.8);z-index:-1;animation:float 9s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-22px)}}
+.hero-grid{display:grid;gap:36px;align-items:center}
+.live{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;background:#fff;border:1px solid var(--line);padding:7px 12px;border-radius:99px;box-shadow:var(--shadow)}
+.dot{width:8px;height:8px;border-radius:50%;background:#1fae5b;box-shadow:0 0 0 0 rgba(31,174,91,.6);animation:pulse 1.8s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 9px rgba(31,174,91,0)}100%{box-shadow:0 0 0 0 rgba(31,174,91,0)}}
+.hero h1{font-size:clamp(38px,9.6vw,68px);font-weight:800;margin:18px 0 16px}
+.hero h1 em{font-style:normal;color:var(--brand);position:relative;white-space:nowrap}
+.hero h1 em::after{content:"";position:absolute;left:0;right:0;bottom:.06em;height:.22em;background:var(--mint);opacity:.55;z-index:-1;border-radius:4px}
+.ctas{display:flex;flex-direction:column;gap:10px;margin-top:26px}
+.proof{display:flex;align-items:center;gap:12px;margin-top:24px;font-size:14px;color:var(--ink-2)}
+.avatars{display:flex}
+.avatars span{width:34px;height:34px;border-radius:50%;border:2.5px solid var(--bg);margin-left:-9px;display:grid;place-items:center;font-size:13px;font-weight:800;color:#fff}
+.avatars span:first-child{margin-left:0}
+.stars{color:#f5a623;letter-spacing:1px}
+.hero-img{position:relative}
+.hero-img img{width:100%;height:380px;object-fit:cover;border-radius:28px;box-shadow:var(--shadow);background:var(--mint-2)}
+.float-card{position:absolute;background:#fff;border-radius:16px;padding:12px 14px;box-shadow:var(--shadow);display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600}
+.float-card strong{display:block;font-size:15px}
+.float-card .ic{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;background:var(--mint-2);color:var(--brand)}
+.fc1{left:-6px;bottom:24px;animation:float 7s ease-in-out infinite}
+.fc2{right:-6px;top:22px;animation:float 8s ease-in-out infinite -3s}
+
+/* stats */
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px}
+.stat b{display:block;font-size:26px;font-weight:800;letter-spacing:-.03em;color:var(--brand)}
+.stat span{font-size:13px;color:var(--ink-2);font-weight:600}
+
+/* marquee */
+.marquee{background:var(--deep);color:#fff;padding:16px 0;overflow:hidden;white-space:nowrap}
+.marquee div{display:inline-flex;gap:36px;animation:slide 40s linear infinite;font-weight:700;font-size:15px}
+.marquee span{display:inline-flex;align-items:center;gap:10px;opacity:.9}
+.marquee span::before{content:"✦";color:var(--mint)}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* services */
+.svc-grid{display:grid;gap:12px}
+.svc{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:20px;display:flex;gap:16px;transition:transform .2s,box-shadow .2s,border-color .2s}
+.svc:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:transparent}
+.svc .ic{width:52px;height:52px;border-radius:15px;background:var(--mint-2);color:var(--brand);display:grid;place-items:center;flex:none;font-size:22px}
+.svc h3{font-size:18px;margin-bottom:4px}
+.svc p{font-size:14.5px;color:var(--ink-2)}
+.svc .from{display:inline-block;margin-top:10px;font-size:13px;font-weight:700;color:var(--brand)}
+
+/* calculator */
+.calc-sec{background:linear-gradient(180deg,var(--bg),#e9f4ef)}
+.calc{display:grid;gap:16px}
+.panel{background:#fff;border-radius:26px;padding:22px;border:1px solid var(--line)}
+.field{margin-bottom:22px}
+.field:last-child{margin-bottom:0}
+.lbl{display:block;font-weight:700;font-size:15px;margin-bottom:10px}
+.field>label,.field>.lbl{display:flex;justify-content:space-between;font-weight:700;font-size:15px;margin-bottom:10px}
+.field output{color:var(--brand)}
+.segs{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.chip input{position:absolute;opacity:0;pointer-events:none}
+.chip span{display:flex;align-items:center;justify-content:center;gap:6px;text-align:center;padding:12px 10px;border-radius:14px;border:1.5px solid var(--line);font-weight:600;font-size:14px;cursor:pointer;transition:.15s;min-height:48px}
+.chip input:checked+span{border-color:var(--brand);background:var(--mint-2);color:var(--deep)}
+.chip input:focus-visible+span{outline:2px solid var(--brand);outline-offset:2px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips .chip span{padding:10px 14px;min-height:44px}
+.chips .chip span small{color:var(--ink-2);font-weight:600}
+input[type=range]{width:100%;accent-color:var(--brand);height:28px}
+select,input[type=date]{width:100%;font:inherit;font-size:16px;padding:13px 14px;border-radius:14px;border:1.5px solid var(--line);background:#fff;color:var(--ink)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.result{background:var(--deep);color:#fff;border-radius:26px;padding:26px;position:relative;overflow:hidden}
+.result::after{content:"";position:absolute;width:260px;height:260px;right:-90px;top:-90px;background:radial-gradient(circle,rgba(124,224,195,.45),transparent 70%)}
+.result small{opacity:.75;font-weight:600}
+.price{font-size:clamp(32px,8vw,44px);font-weight:800;letter-spacing:-.03em;margin:4px 0 6px;font-variant-numeric:tabular-nums}
+.result ul{list-style:none;padding:0;margin:18px 0 22px;display:grid;gap:8px;font-size:14px}
+.result li{display:flex;gap:8px;align-items:center;opacity:.9}
+.result li svg{color:var(--mint)}
+.result .btn{width:100%}
+.note{font-size:12px;opacity:.6;margin-top:12px;text-align:center}
+
+/* before after */
+.ba{position:relative;border-radius:26px;overflow:hidden;aspect-ratio:4/3;box-shadow:var(--shadow);--p:50%;user-select:none;background:var(--mint-2)}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ba .before{position:absolute;inset:0;clip-path:inset(0 calc(100% - var(--p)) 0 0)}
+.ba .before img{filter:sepia(.55) saturate(.6) brightness(.72) contrast(.92)}
+.ba .before::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 70%,rgba(90,60,20,.35),transparent 35%),radial-gradient(circle at 70% 30%,rgba(90,60,20,.25),transparent 30%),radial-gradient(circle at 50% 90%,rgba(60,40,10,.3),transparent 40%)}
+.ba .bar{position:absolute;top:0;bottom:0;left:var(--p);width:3px;background:#fff;transform:translateX(-50%);pointer-events:none}
+.ba .knob{position:absolute;top:50%;left:var(--p);transform:translate(-50%,-50%);width:52px;height:52px;border-radius:50%;background:#fff;box-shadow:0 6px 20px rgba(0,0,0,.25);display:grid;place-items:center;pointer-events:none;color:var(--deep);font-weight:800}
+.ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.ba .tag{position:absolute;top:14px;padding:6px 12px;border-radius:99px;font-size:12px;font-weight:800;letter-spacing:.08em;background:rgba(0,0,0,.55);color:#fff;pointer-events:none}
+.ba .t1{left:14px}.ba .t2{right:14px;background:var(--mint);color:var(--deep)}
+
+/* steps */
+.steps{display:grid;gap:12px;counter-reset:s}
+.step{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:22px;position:relative}
+.step::before{counter-increment:s;content:"0" counter(s);font-size:42px;font-weight:800;color:var(--mint);line-height:1;display:block;margin-bottom:12px}
+.step h3{font-size:19px;margin-bottom:6px}
+.step p{color:var(--ink-2);font-size:15px}
+
+/* guarantee */
+.guar{background:var(--deep);color:#fff;border-radius:32px;padding:36px 22px;position:relative;overflow:hidden}
+.guar::before{content:"";position:absolute;width:420px;height:420px;left:-160px;bottom:-200px;background:radial-gradient(circle,rgba(124,224,195,.35),transparent 70%)}
+.guar h2{max-width:720px}
+.guar h2 span{color:var(--mint)}
+.guar-list{display:grid;gap:14px;margin-top:28px;position:relative}
+.guar-list div{display:flex;gap:14px;align-items:flex-start}
+.guar-list .ic{width:44px;height:44px;border-radius:13px;background:rgba(124,224,195,.15);color:var(--mint);display:grid;place-items:center;flex:none}
+.guar-list b{display:block;font-size:16px}
+.guar-list p{font-size:14px;opacity:.75}
+
+/* reviews */
+.rev-row{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 16px 12px;margin:0 -16px;scrollbar-width:none}
+.rev-row::-webkit-scrollbar{display:none}
+.rev{flex:0 0 84%;scroll-snap-align:center;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:14px}
+.rev p{font-size:15.5px}
+.rev .who{display:flex;align-items:center;gap:10px;margin-top:auto;font-size:14px}
+.rev .who span{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:800}
+.rev .who small{display:block;color:var(--ink-2)}
+.g-badge{display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);padding:10px 14px;border-radius:14px;font-weight:700;font-size:14px;margin-top:16px}
+
+/* districts */
+.dist{display:flex;flex-wrap:wrap;gap:8px}
+.dist span{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid var(--line);padding:9px 14px;border-radius:99px;font-weight:600;font-size:14px}
+.dist svg{color:var(--brand)}
+
+/* faq */
+.faq{display:grid;gap:10px;max-width:800px}
+details{background:#fff;border:1px solid var(--line);border-radius:18px;padding:0 20px}
+summary{list-style:none;cursor:pointer;padding:18px 0;font-weight:700;font-size:16px;display:flex;justify-content:space-between;gap:16px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:24px;font-weight:500;color:var(--brand);transition:transform .2s;flex:none}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding:0 0 18px;color:var(--ink-2)}
+
+/* final cta + footer */
+.final{text-align:center;background:radial-gradient(circle at 50% 0,var(--mint-2),transparent 70%)}
+.final h2{max-width:680px;margin:0 auto}
+.final .ctas{max-width:420px;margin:26px auto 0}
+footer{background:var(--deep);color:rgba(255,255,255,.75);padding:48px 0 120px;font-size:14px}
+.foot{display:grid;gap:28px}
+footer .logo{color:#fff;margin-bottom:12px}
+footer h4{color:#fff;font-size:15px;margin-bottom:10px}
+footer li{list-style:none;margin-bottom:6px}
+footer ul{padding:0}
+.copy{border-top:1px solid rgba(255,255,255,.12);margin-top:32px;padding-top:20px;font-size:13px}
+
+/* mobile action bar */
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:grid;grid-template-columns:1fr 1.4fr;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .3s}
+.mbar.show{transform:none}
+.mbar .btn{padding:14px 10px;font-size:15px}
+.fab{display:none}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(18px);transition:opacity .7s,transform .7s}
+.js .rv.in{opacity:1;transform:none}
+
+@media (min-width:640px){
+  .ctas{flex-direction:row}
+  .stats{grid-template-columns:repeat(4,1fr)}
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .segs{grid-template-columns:repeat(4,1fr)}
+  .rev{flex-basis:46%}
+  .ba{aspect-ratio:16/9}
+}
+@media (min-width:900px){
+  section{padding:96px 0}
+  .links{display:flex}
+  .call{padding:12px 18px}
+  .hero{padding:56px 0 80px}
+  .hero-grid{grid-template-columns:1.05fr .95fr;gap:56px}
+  .hero-img img{height:540px}
+  .fc1{left:-28px}.fc2{right:-20px}
+  .svc-grid{grid-template-columns:repeat(3,1fr)}
+  .svc{flex-direction:column;padding:26px}
+  .calc{grid-template-columns:1.25fr .9fr;align-items:start}
+  .panel{padding:32px}
+  .result{position:sticky;top:90px;padding:32px}
+  .steps{grid-template-columns:repeat(3,1fr)}
+  .guar{padding:64px}
+  .guar-list{grid-template-columns:repeat(3,1fr);gap:24px}
+  .rev-row{display:grid;grid-template-columns:repeat(3,1fr);overflow:visible;margin:0;padding:0}
+  .foot{grid-template-columns:1.5fr 1fr 1fr 1fr}
+  footer{padding-bottom:48px}
+  .mbar{display:none}
+  .fab{display:grid;position:fixed;right:24px;bottom:24px;z-index:60;width:62px;height:62px;border-radius:50%;background:#1fae5b;color:#fff;place-items:center;box-shadow:0 12px 30px -8px rgba(31,174,91,.7);font-size:28px;transition:transform .2s}
+  .fab:hover{transform:scale(1.08)}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .js .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></symbol>
+  <symbol id="office" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"/></symbol>
+  <symbol id="helmet" viewBox="0 0 24 24"><path d="M2 18h20v3H2zM4 18v-3a8 8 0 0 1 16 0v3M10 8V4h4v4"/></symbol>
+  <symbol id="box" viewBox="0 0 24 24"><path d="M21 8 12 3 3 8v8l9 5 9-5zM3 8l9 5 9-5M12 13v8"/></symbol>
+  <symbol id="sofa" viewBox="0 0 24 24"><path d="M4 11V8a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v3M2 13a2 2 0 0 1 4 0v2h12v-2a2 2 0 0 1 4 0v5H2zM5 18v2M19 18v2"/></symbol>
+  <symbol id="window" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M12 3v18M3 12h18"/></symbol>
+  <symbol id="shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10Z"/><path d="M2 21c0-3 1.9-5.4 5.1-6C9.5 14.5 12 13 13 12"/></symbol>
+  <symbol id="phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="wa" viewBox="0 0 24 24"><path d="M3 21l1.7-4.8A9 9 0 1 1 8 19.6z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.6-2-1-1 .9a5 5 0 0 1-2.8-2.8l.9-1-1-2z" fill="currentColor" stroke-width="1"/></symbol>
+  <symbol id="check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="sparkle" viewBox="0 0 24 24"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2z" fill="currentColor"/></symbol>
+  <symbol id="pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="cal" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+  <symbol id="refresh" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7L21 8M21 3v5h-5"/></symbol>
+</svg>
+
+<header id="top">
+  <div class="wrap nav">
+    <a href="#top" class="logo"><b><svg class="i"><use href="#sparkle"/></svg></b><span data-c="name"></span></a>
+    <nav class="links">
+      <a href="#hizmetler">Hizmetler</a>
+      <a href="#fiyat">Fiyat Hesapla</a>
+      <a href="#once-sonra">Önce / Sonra</a>
+      <a href="#yorumlar">Yorumlar</a>
+      <a href="#sss">SSS</a>
+    </nav>
+    <a class="call" data-tel><svg class="i"><use href="#phone"/></svg><span>Hemen Ara</span></a>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero">
+  <i class="bubble" style="width:70px;height:70px;left:6%;top:12%"></i>
+  <i class="bubble" style="width:34px;height:34px;left:44%;top:6%;animation-delay:-2s"></i>
+  <i class="bubble" style="width:110px;height:110px;right:4%;bottom:6%;animation-delay:-5s"></i>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="live"><i class="dot"></i>Bugün 3 ekibimiz müsait</span>
+      <h1>Eve döndüğünüzde <em>pırıl pırıl</em> bir ev.</h1>
+      <p class="lead">Bursa'nın 17 ilçesinde sigortalı, eğitimli ve her seferinde aynı ekiple temizlik. Beğenmezseniz 24 saat içinde ücretsiz tekrar geliyoruz.</p>
+      <div class="ctas">
+        <a class="btn btn-wa" data-wa="Merhaba, temizlik için fiyat almak istiyorum."><svg class="i"><use href="#wa"/></svg>WhatsApp'tan Teklif Al</a>
+        <a class="btn btn-ghost" href="#fiyat">30 sn'de Fiyat Hesapla →</a>
+      </div>
+      <div class="proof">
+        <div class="avatars"><span style="background:#0e5c5a">A</span><span style="background:#e07a5f">M</span><span style="background:#3d5a80">S</span><span style="background:#f2a541">E</span></div>
+        <div><span class="stars">★★★★★</span> <b>4.9</b><br>2.400+ mutlu Bursalı</div>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1100&q=75" alt="Profesyonel temizlik ekibi çalışırken" fetchpriority="high">
+      <div class="float-card fc1"><span class="ic"><svg class="i"><use href="#shield"/></svg></span><div><strong>%100 Sigortalı</strong>Eşyalarınız güvende</div></div>
+      <div class="float-card fc2"><span class="ic"><svg class="i"><use href="#leaf"/></svg></span><div><strong>Çevre dostu</strong>Çocuk & evcil hayvan uyumlu</div></div>
+    </div>
+  </div>
+  <div class="wrap stats rv" style="margin-top:36px">
+    <div class="stat"><b>2.400+</b><span>temizlenen ev & ofis</span></div>
+    <div class="stat"><b>4.9 ★</b><span>Google puanı</span></div>
+    <div class="stat"><b>17</b><span>ilçede hizmet</span></div>
+    <div class="stat"><b>%100</b><span>memnuniyet garantisi</span></div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true"><div id="mq"></div></div>
+
+<!-- SERVICES -->
+<section id="hizmetler">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow"><svg class="i"><use href="#sparkle"/></svg>Hizmetlerimiz</span>
+      <h2>Her köşe için doğru ekip, doğru ekipman.</h2>
+      <p class="lead">Profesyonel makineler, onaylı ürünler, kontrol listesiyle çalışan ekipler.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc rv"><span class="ic"><svg class="i"><use href="#home"/></svg></span><div><h3>Ev Temizliği</h3><p>Mutfak, banyo, yatak odaları, dolap üstleri — detaylı kontrol listesiyle.</p><span class="from" data-from="ev"></span></div></div>
+      <div class="svc rv"><span class="ic"><svg class="i"><use href="#office"/></svg></span><div><h3>Ofis Temizliği</h3><p>Mesai dışı veya haftalık düzenli temizlik. Kurumsal fatura.</p><span class="from" data-from="ofis"></span></div></div>
+      <div class="svc rv"><span class="ic"><svg class="i"><use href="#helmet"/></svg></span><div><h3>İnşaat Sonrası</h3><p>Boya, alçı, silikon ve toz kalıntısı. Anahtar teslim hazır hale getiriyoruz.</p><span class="from" data-from="insaat"></span></div></div>
+      <div class="svc rv"><span class="ic"><svg class="i"><use href="#box"/></svg></span><div><h3>Taşınma Temizliği</h3><p>Yeni evinize temiz başlayın, eski evinizi depozitonuzu alarak bırakın.</p><span class="from" data-from="tasinma"></span></div></div>
+      <div class="svc rv"><span class="ic"><svg class="i"><use href="#sofa"/></svg></span><div><h3>Koltuk & Halı Yıkama</h3><p>Yerinde buharlı yıkama, leke ve koku giderme. Aynı gün kuruma.</p><span class="from">Fiyat için yazın →</span></div></div>
+      <div class="svc rv"><span class="ic"><svg class="i"><use href="#window"/></svg></span><div><h3>Cam & Dış Cephe</h3><p>İz bırakmayan cam silme, balkon ve teras temizliği.</p><span class="from">Fiyat için yazın →</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section id="fiyat" class="calc-sec">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow"><svg class="i"><use href="#sparkle"/></svg>Anında fiyat</span>
+      <h2>Telefonda pazarlık yok. Fiyatınızı şimdi görün.</h2>
+      <p class="lead">Birkaç seçim yapın, tahmini fiyatınız anında çıksın. Beğenirseniz tek dokunuşla WhatsApp'tan randevu alın.</p>
+    </div>
+    <form class="calc" id="calc" onsubmit="return false">
+      <div class="panel rv">
+        <div class="field"><div class="lbl">Hangi hizmet?</div><div class="segs" id="segs"></div></div>
+        <div class="field"><label for="m2">Alan büyüklüğü <output id="m2o">120 m²</output></label><input type="range" id="m2" name="m2" min="40" max="400" step="5" value="120"></div>
+        <div class="field"><div class="lbl">Ekstralar</div><div class="chips" id="extras"></div></div>
+        <div class="field two">
+          <div><label for="ilce" class="lbl">İlçe</label><select id="ilce" name="ilce"></select></div>
+          <div><label for="tarih" class="lbl">Tarih</label><input type="date" id="tarih" name="tarih"></div>
+        </div>
+      </div>
+      <div class="result rv">
+        <small>Tahmini fiyatınız</small>
+        <div class="price" id="price">—</div>
+        <small id="sum"></small>
+        <ul>
+          <li><svg class="i"><use href="#check"/></svg>Malzeme ve ekipman dahil</li>
+          <li><svg class="i"><use href="#check"/></svg>Sigortalı, kimliği doğrulanmış ekip</li>
+          <li><svg class="i"><use href="#check"/></svg>Memnuniyet garantisi</li>
+        </ul>
+        <a class="btn btn-wa" id="book" target="_blank" rel="noopener"><svg class="i"><use href="#wa"/></svg>Bu fiyatla randevu al</a>
+        <p class="note">Kesin fiyat, evin durumuna göre WhatsApp'ta netleştirilir.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section id="once-sonra">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow"><svg class="i"><use href="#sparkle"/></svg>Önce / Sonra</span>
+      <h2>Farkı kendiniz görün.</h2>
+      <p class="lead">Çubuğu sağa sola kaydırın.</p>
+    </div>
+    <div class="ba rv" id="ba">
+      <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1400&q=75" alt="Temizlik sonrası salon" loading="lazy">
+      <div class="before"><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1400&q=75" alt="" loading="lazy"></div>
+      <span class="tag t1">ÖNCE</span><span class="tag t2">SONRA</span>
+      <div class="bar"></div><div class="knob">⇆</div>
+      <input type="range" min="0" max="100" value="50" aria-label="Önce ve sonra fotoğrafını karşılaştır">
+    </div>
+  </div>
+</section>
+
+<!-- STEPS -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="head rv"><span class="eyebrow"><svg class="i"><use href="#sparkle"/></svg>Nasıl çalışıyor?</span><h2>3 adımda tertemiz.</h2></div>
+    <div class="steps">
+      <div class="step rv"><h3>Fiyatını gör</h3><p>Hesaplayıcıdan ya da WhatsApp'tan 1 dakikada fiyat alın. Sürpriz ücret yok.</p></div>
+      <div class="step rv"><h3>Saatini seç</h3><p>Size uyan gün ve saati seçin. Hafta sonu ve akşam saatleri de var.</p></div>
+      <div class="step rv"><h3>Keyfine bak</h3><p>Ekibimiz gelir, kontrol listesiyle temizler, fotoğraflı rapor gönderir.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="guar rv">
+      <span class="eyebrow" style="background:rgba(124,224,195,.15);color:var(--mint)"><svg class="i"><use href="#shield"/></svg>Söz veriyoruz</span>
+      <h2>Beğenmediğiniz köşe kalırsa <span>24 saat içinde ücretsiz</span> tekrar geliyoruz.</h2>
+      <div class="guar-list">
+        <div><span class="ic"><svg class="i"><use href="#shield"/></svg></span><div><b>Sigortalı & güvenilir</b><p>Tüm personel sigortalı, adli sicil kaydı kontrol edilmiş.</p></div></div>
+        <div><span class="ic"><svg class="i"><use href="#refresh"/></svg></span><div><b>Hep aynı ekip</b><p>Düzenli müşterilerimize her seferinde aynı tanıdık yüzler.</p></div></div>
+        <div><span class="ic"><svg class="i"><use href="#clock"/></svg></span><div><b>Dakik</b><p>Söylediğimiz saatte kapıdayız. Geç kalırsak indirim.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="yorumlar" style="padding-top:0">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow"><svg class="i"><use href="#sparkle"/></svg>Müşteri yorumları</span>
+      <h2>Bursa bizi konuşuyor.</h2>
+      <div class="g-badge"><span class="stars">★★★★★</span> 4.9 · Google'da 312 yorum</div>
+    </div>
+    <div class="rev-row">
+      <div class="rev rv"><span class="stars">★★★★★</span><p>“İnşaat sonrası evi teslim aldık, boya lekesi bile kalmamıştı. Ekip çok kibar ve hızlıydı.”</p><div class="who"><span style="background:#0e5c5a">A</span><div><b>Ayşe K.</b><small>Nilüfer · İnşaat sonrası</small></div></div></div>
+      <div class="rev rv"><span class="stars">★★★★★</span><p>“2 yıldır her ay aynı ekip geliyor. Anahtarı gönül rahatlığıyla bırakıyorum, bu çok önemli.”</p><div class="who"><span style="background:#e07a5f">M</span><div><b>Mehmet D.</b><small>Osmangazi · Düzenli ev</small></div></div></div>
+      <div class="rev rv"><span class="stars">★★★★★</span><p>“Fiyatı sitede gördüm, WhatsApp'tan yazdım, ertesi gün geldiler. Ofisimiz hiç bu kadar temiz olmamıştı.”</p><div class="who"><span style="background:#3d5a80">S</span><div><b>Selin T.</b><small>Yıldırım · Ofis</small></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- DISTRICTS -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="head rv"><span class="eyebrow"><svg class="i"><use href="#pin"/></svg>Hizmet bölgeleri</span><h2>Bursa'nın her yerindeyiz.</h2></div>
+    <div class="dist rv" id="dist"></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="sss" style="padding-top:0">
+  <div class="wrap">
+    <div class="head rv"><span class="eyebrow"><svg class="i"><use href="#sparkle"/></svg>Sık sorulanlar</span><h2>Aklınızdaki sorular.</h2></div>
+    <div class="faq rv">
+      <details open><summary>Malzemeleri siz mi getiriyorsunuz?</summary><p>Evet. Tüm temizlik ürünleri ve profesyonel ekipman fiyata dahildir. Özel bir ürün tercih ederseniz onu da kullanabiliriz.</p></details>
+      <details><summary>Evde olmam gerekiyor mu?</summary><p>Hayır. Anahtar teslimi ile de çalışıyoruz. İş bitince fotoğraflı rapor gönderiyoruz.</p></details>
+      <details><summary>Bir şey kırılırsa ne oluyor?</summary><p>Tüm ekiplerimiz sigortalıdır. Oluşabilecek hasar firmamız tarafından karşılanır.</p></details>
+      <details><summary>Ödemeyi nasıl yapıyorum?</summary><p>Nakit, havale/EFT veya kartla, iş bittikten sonra ödeyebilirsiniz. Kurumsal müşterilere fatura kesilir.</p></details>
+      <details><summary>Aynı gün hizmet var mı?</summary><p>Müsait ekip olduğu sürece evet. En hızlı bilgi için WhatsApp'tan yazın.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final">
+  <div class="wrap rv">
+    <h2>Bu hafta sonu temizlikle değil, sevdiklerinizle geçsin.</h2>
+    <p class="lead" style="margin-top:14px">Hafta sonu randevuları hızlı doluyor.</p>
+    <div class="ctas">
+      <a class="btn btn-wa" data-wa="Merhaba, bu hafta için temizlik randevusu almak istiyorum."><svg class="i"><use href="#wa"/></svg>WhatsApp'tan Yaz</a>
+      <a class="btn btn-ghost" data-tel><svg class="i"><use href="#phone"/></svg>Ara</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div><div class="logo"><b><svg class="i"><use href="#sparkle"/></svg></b><span data-c="name"></span></div><p>Bursa'da ev, ofis ve inşaat sonrası profesyonel temizlik.</p></div>
+      <div><h4>Hizmetler</h4><ul><li>Ev Temizliği</li><li>Ofis Temizliği</li><li>İnşaat Sonrası</li><li>Koltuk & Halı</li></ul></div>
+      <div><h4>İletişim</h4><ul><li><a data-tel><span data-c="phone"></span></a></li><li><a data-wa="Merhaba">WhatsApp</a></li><li data-c="address"></li></ul></div>
+      <div><h4>Çalışma saatleri</h4><ul><li data-c="hours"></li></ul></div>
+    </div>
+    <div class="copy">© <span id="yr"></span> <span data-c="name"></span>. Tüm hakları saklıdır.</div>
+  </div>
+</footer>
+
+<div class="mbar" id="mbar">
+  <a class="btn btn-ghost" data-tel><svg class="i"><use href="#phone"/></svg>Ara</a>
+  <a class="btn btn-wa" data-wa="Merhaba, temizlik için fiyat almak istiyorum."><svg class="i"><use href="#wa"/></svg>WhatsApp</a>
+</div>
+<a class="fab" data-wa="Merhaba, temizlik için fiyat almak istiyorum." aria-label="WhatsApp'tan yazın"><svg class="i"><use href="#wa"/></svg></a>
+
+<script>
+const $ = s => document.querySelector(s), $$ = s => document.querySelectorAll(s);
+const tl = n => n.toLocaleString('tr-TR') + ' ₺';
+const wa = t => `https://wa.me/${C.wa}?text=${encodeURIComponent(t)}`;
+const r50 = n => Math.round(n / 50) * 50;
+
+// config → sayfa
+$$('[data-c]').forEach(e => e.textContent = C[e.dataset.c]);
+$$('[data-tel]').forEach(e => e.href = 'tel:' + C.phone.replace(/\s/g, ''));
+$$('[data-wa]').forEach(e => { e.href = wa(e.dataset.wa); e.target = '_blank'; e.rel = 'noopener'; });
+$$('[data-from]').forEach(e => e.textContent = tl(C.services[e.dataset.from].min) + "'den başlayan fiyatlarla");
+$('#yr').textContent = new Date().getFullYear();
+$('#mq').innerHTML = [...C.districts, ...C.districts].map(d => `<span>${d}</span>`).join('');
+$('#dist').innerHTML = C.districts.map(d => `<span><svg class="i"><use href="#pin"/></svg>${d}</span>`).join('');
+
+// hesaplayıcı
+const f = $('#calc');
+$('#segs').innerHTML = Object.entries(C.services).map(([k, s], i) =>
+  `<label class="chip"><input type="radio" name="svc" value="${k}"${i ? '' : ' checked'}><span>${s.t}</span></label>`).join('');
+$('#extras').innerHTML = Object.entries(C.extras).map(([k, x]) =>
+  `<label class="chip"><input type="checkbox" name="ex" value="${k}"><span>${x.t} <small>+${tl(x.p)}</small></span></label>`).join('');
+f.ilce.innerHTML = C.districts.map(d => `<option>${d}</option>`).join('');
+f.tarih.min = new Date().toISOString().slice(0, 10);
+
+function calc() {
+  const s = C.services[f.svc.value], m2 = +f.m2.value;
+  const ex = [...f.querySelectorAll('[name=ex]:checked')].map(x => C.extras[x.value]);
+  const p = Math.max(s.min, m2 * s.m2) + ex.reduce((a, x) => a + x.p, 0);
+  const range = `${tl(r50(p * .92))} – ${tl(r50(p * 1.08))}`;
+  const date = f.tarih.value ? new Date(f.tarih.value).toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', weekday: 'long' }) : 'esnek';
+  $('#m2o').textContent = m2 + ' m²';
+  $('#price').textContent = range;
+  $('#sum').textContent = `${s.t} · ${m2} m² · ${f.ilce.value}`;
+  $('#book').href = wa(`Merhaba ${C.name}, sitenizden fiyat hesapladım:\n• Hizmet: ${s.t}\n• Alan: ${m2} m²\n• Ekstralar: ${ex.map(x => x.t).join(', ') || 'yok'}\n• İlçe: ${f.ilce.value}\n• Tarih: ${date}\n• Tahmini fiyat: ${range}\nMüsaitliğiniz var mı?`);
+}
+f.addEventListener('input', calc);
+calc();
+
+// önce / sonra
+$('#ba input').addEventListener('input', e => $('#ba').style.setProperty('--p', e.target.value + '%'));
+
+// header gölgesi + mobil bar
+addEventListener('scroll', () => {
+  $('header').classList.toggle('scrolled', scrollY > 10);
+  $('#mbar').classList.toggle('show', scrollY > 500);
+}, { passive: true });
+
+// scroll reveal
+const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && (e.target.classList.add('in'), io.unobserve(e.target))), { threshold: .12 });
+$$('.rv').forEach(e => io.observe(e));
+</script>
+</body>
+</html>
