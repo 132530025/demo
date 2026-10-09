@@ -486,7 +486,7 @@ function upd() {
     el.querySelector('output').textContent = q[el.dataset.k];
     el.classList.toggle('on', q[el.dataset.k] > 0);
   });
-  $('#sumlist').innerHTML = lines.length ? lines.map(l => `<li>${l}</li>`).join('') : '<li class="empty">Soldan yıkatmak istediklerinizi seçin.</li>';
+  $('#sumlist').innerHTML = lines.length ? lines.map(l => `<li>${l}</li>`).join('') : '<li class="empty">Yıkatmak istediklerinizin adedini seçin.</li>';
   $('#sum').textContent = `${f.ilce.value} · ${date}`;
   $('#book').href = wa(`Merhaba ${C.name}, sitenizden yazıyorum. Fiyat alabilir miyim?\n` +
     (lines.length ? lines.map(l => '• ' + l).join('\n') + '\n' : '') +
