@@ -5,7 +5,7 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>DuruPak Temizlik | Bursa Yerinde Koltuk, Yatak ve Halıflex Yıkama</title>
-<meta name="description" content="DuruPak Temizlik: Bursa'da yerinde koltuk, yatak ve halıflex yıkama; sandalye, araç koltuğu, stor perde, yorgan ve battaniye yıkama. Nilüfer, Osmangazi, Yıldırım, Gemlik, Kestel, Mudanya, Orhaneli ve Gürsu. WhatsApp'tan fiyat alın.">
+<meta name="description" content="DuruPak Temizlik: Bursa'da yerinde koltuk, yatak ve halıflex yıkama. Nilüfer, Osmangazi, Yıldırım, Gemlik, Kestel, Mudanya, Orhaneli ve Gürsu. WhatsApp'tan fiyat alın.">
 <meta name="theme-color" content="#0d3460">
 <link rel="icon" type="image/png" href="favicon.png?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,8 +29,6 @@ const C = {
     { k: 'y1',    t: 'Tek kişilik yatak',     s: '',                   u: 'adet' },
     { k: 'y2',    t: 'Çift kişilik yatak',    s: '',                   u: 'adet' },
     { k: 'hali',  t: 'Halıflex',              s: 'Yaklaşık metrekare', u: 'm²', step: 5 },
-    { k: 'sandalye', t: 'Sandalye',           s: '',                   u: 'adet' },
-    { k: 'arac',  t: 'Araç koltuğu',          s: '',                   u: 'araç' },
   ],
   districts: ['Nilüfer','Osmangazi','Yıldırım','Gemlik','Kestel','Mudanya','Orhaneli','Gürsu'],
 };
@@ -226,6 +224,7 @@ footer ul{padding:0}
   .hero{padding:56px 0 80px}
   .hero-grid{grid-template-columns:1.05fr .95fr;gap:56px}
   .fc1{left:-12px}
+  .svc-grid{grid-template-columns:repeat(3,1fr)}
   .svc{flex-direction:column;padding:26px}
   .corp{grid-template-columns:1fr 1fr;gap:56px}
   .calc{grid-template-columns:1.25fr .9fr;align-items:start}
@@ -299,7 +298,7 @@ footer ul{padding:0}
   <div class="wrap stats rv" style="margin-top:36px">
     <div class="stat"><b>Yerinde</b><span>yıkama, taşıma yok</span></div>
     <div class="stat"><b>8 ilçe</b><span>hizmet bölgesi</span></div>
-    <div class="stat"><b>4.400+</b><span>Instagram takipçisi</span></div>
+    <div class="stat"><b>3 hizmet</b><span>koltuk · yatak · halıflex</span></div>
     <div class="stat"><b>WhatsApp</b><span>ile hızlı fiyat</span></div>
   </div>
 </section>
@@ -318,7 +317,6 @@ footer ul{padding:0}
       <div class="svc rv"><span class="ic"><svg class="i"><use href="#sofa"/></svg></span><div><h3>Koltuk Yıkama</h3><p>Koltuk takımı, köşe koltuk ve tekli koltuklar evinizde, yerinde yıkanır.</p><a class="from" href="#fiyat">Fiyat al →</a></div></div>
       <div class="svc rv"><span class="ic"><svg class="i"><use href="#bed"/></svg></span><div><h3>Yatak Yıkama</h3><p>Tek ve çift kişilik yataklar yerinde yıkanır.</p><a class="from" href="#fiyat">Fiyat al →</a></div></div>
       <div class="svc rv"><span class="ic"><svg class="i"><use href="#rug"/></svg></span><div><h3>Halıflex Yıkama</h3><p>Duvardan duvara halıflex, yerinden sökülmeden yıkanır.</p><a class="from" href="#fiyat">Fiyat al →</a></div></div>
-      <div class="svc rv"><span class="ic"><svg class="i"><use href="#drop"/></svg></span><div><h3>Diğer Yıkamalar</h3><p>Sandalye, araç koltuğu, stor perde, yorgan ve battaniye yıkama.</p><a class="from" href="#fiyat">Fiyat al →</a></div></div>
     </div>
   </div>
 </section>
@@ -451,8 +449,8 @@ footer ul{padding:0}
   <div class="wrap">
     <div class="foot">
       <div><div class="logo"><img src="logo-beyaz.png?v=2" alt="DuruPak logo" width="39" height="42"><span data-c="name"></span></div><p>Bursa'da yerinde koltuk, yatak ve halıflex yıkama.</p></div>
-      <div><h4>Hizmetler</h4><ul><li>Koltuk Yıkama</li><li>Yatak Yıkama</li><li>Halıflex Yıkama</li><li>Sandalye & Araç Koltuğu</li><li>Stor Perde, Yorgan, Battaniye</li></ul></div>
-      <div><h4>İletişim</h4><ul><li><a data-tel><span data-c="phone"></span></a></li><li><a data-wa="Merhaba">WhatsApp</a></li><li><a id="ig" target="_blank" rel="noopener"></a></li><li><a href="https://www.youtube.com/@durupaktemizlik16" target="_blank" rel="noopener">YouTube</a></li><li data-c="address"></li></ul></div>
+      <div><h4>Hizmetler</h4><ul><li>Koltuk Yıkama</li><li>Yatak Yıkama</li><li>Halıflex Yıkama</li></ul></div>
+      <div><h4>İletişim</h4><ul><li><a data-tel><span data-c="phone"></span></a></li><li><a data-wa="Merhaba">WhatsApp</a></li><li><a id="ig" target="_blank" rel="noopener"></a></li><li data-c="address"></li></ul></div>
       <div id="hours"><h4>Çalışma saatleri</h4><ul><li data-c="hours"></li></ul></div>
     </div>
     <div class="copy">© <span id="yr"></span> <span data-c="name"></span>. Tüm hakları saklıdır.</div>
