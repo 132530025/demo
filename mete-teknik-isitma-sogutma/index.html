@@ -193,6 +193,9 @@ select.in{-webkit-appearance:none;appearance:none;padding-right:40px;background:
 .step.hl p{color:rgba(255,255,255,.7)}
 
 /* reviews */
+.gal{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.gal img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:14px;display:block;background:var(--line)}
+@media(min-width:760px){.gal{grid-template-columns:repeat(4,1fr);gap:14px}}
 .sh-row{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:30px}
 .sh-row .sh{margin:0}
 .score{display:flex;align-items:center;gap:12px;padding:12px 18px;border-radius:16px;background:#fff;border:1px solid var(--line)}
@@ -326,7 +329,7 @@ footer a:hover{color:#fff}
       <span class="lt"><b data-firma>Mete Teknik Isıtma Soğutma</b><small>Kombi & Klima Servisi</small></span>
     </a>
     <nav class="nav" aria-label="Menü">
-      <a href="#hizmetler">Hizmetler</a><a href="#nasil">Nasıl Çalışırız</a><a href="#yorumlar">Yorumlar</a><a href="#sss">SSS</a>
+      <a href="#hizmetler">Hizmetler</a><a href="#isler">İşlerimiz</a><a href="#nasil">Nasıl Çalışırız</a><a href="#yorumlar">Yorumlar</a><a href="#sss">SSS</a>
     </nav>
     <a class="btn btn-a btn-sm" href="tel:+905301306189"><svg class="i"><use href="#i-phone"/></svg><span class="d-only" data-tel>0530 130 61 89</span><span class="m-only">Ara</span></a>
   </div>
@@ -416,6 +419,12 @@ footer a:hover{color:#fff}
   </div>
 </section>
 
+<section class="sec pt0" id="isler">
+  <div class="w">
+    <div class="sh"><span class="eb">Yaptığımız işler</span><h2>Sahadan fotoğraflar</h2></div>
+    <div class="gal"><img src="is/01.jpg" alt="Mete Teknik uygulama fotoğrafı 1" loading="lazy"><img src="is/02.jpg" alt="Mete Teknik uygulama fotoğrafı 2" loading="lazy"><img src="is/03.jpg" alt="Mete Teknik uygulama fotoğrafı 3" loading="lazy"><img src="is/04.jpg" alt="Mete Teknik uygulama fotoğrafı 4" loading="lazy"><img src="is/05.jpg" alt="Mete Teknik uygulama fotoğrafı 5" loading="lazy"><img src="is/06.jpg" alt="Mete Teknik uygulama fotoğrafı 6" loading="lazy"><img src="is/07.jpg" alt="Mete Teknik uygulama fotoğrafı 7" loading="lazy"><img src="is/08.jpg" alt="Mete Teknik uygulama fotoğrafı 8" loading="lazy"><img src="is/09.jpg" alt="Mete Teknik uygulama fotoğrafı 9" loading="lazy"><img src="is/10.jpg" alt="Mete Teknik uygulama fotoğrafı 10" loading="lazy"><img src="is/11.jpg" alt="Mete Teknik uygulama fotoğrafı 11" loading="lazy"><img src="is/12.jpg" alt="Mete Teknik uygulama fotoğrafı 12" loading="lazy"><img src="is/13.jpg" alt="Mete Teknik uygulama fotoğrafı 13" loading="lazy"><img src="is/14.jpg" alt="Mete Teknik uygulama fotoğrafı 14" loading="lazy"><img src="is/15.jpg" alt="Mete Teknik uygulama fotoğrafı 15" loading="lazy"><img src="is/16.jpg" alt="Mete Teknik uygulama fotoğrafı 16" loading="lazy"></div>
+  </div>
+</section>
 
 <section class="sec alt" id="talep">
   <div class="w talep">
