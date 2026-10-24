@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Cihan Kuaför Salonu · Yıldırım, Bursa</title>
-<meta name="description" content="Yıldırım&#x27;da saç kesimi, sakal ve bakım. Saatini seç, WhatsApp'tan randevu iste.">
+<meta name="description" content="Yıldırım&#x27;da saç, sakal ve bakım. Saatini seç, WhatsApp'tan randevu iste.">
 <meta name="theme-color" content="#0e0d0c">
 <meta name="robots" content="noindex, nofollow">
 <meta property="og:url" content="https://miletosstudio.com/demo/cihan-kuafor-salonu/">
@@ -186,8 +186,6 @@ h2 { font-size: clamp(40px, 6.4vw, 88px); margin-top: 14px; text-wrap: balance; 
 .times .pick > span { font-weight: 700; font-variant-numeric: tabular-nums; }
 .empty { color: var(--muted); font-size: 15px; }
 .field { display: block; }
-.fields { display: grid; gap: 10px; }
-@media (min-width: 600px) { .fields { grid-template-columns: 1fr 1fr; } }
 .field input {
   width: 100%; min-height: 54px; padding: 0 18px; border: 0; border-radius: 12px;
   background: rgb(255 255 255 / .05); box-shadow: inset 0 0 0 1px var(--line); font-size: 16px;
@@ -198,15 +196,6 @@ h2 { font-size: clamp(40px, 6.4vw, 88px); margin-top: 14px; text-wrap: balance; 
 .sum__list { color: var(--muted); font-size: 15px; }
 .sum__total { font-family: var(--display); font-size: 40px; color: var(--gold); line-height: 1; white-space: nowrap; }
 .send { width: 100%; margin-top: 18px; min-height: 58px; font-size: 17px; }
-.send:disabled { opacity: .6; cursor: wait; transform: none; }
-.done { display: grid; gap: 14px; justify-items: center; text-align: center; padding: 48px 24px; }
-.done[hidden] { display: none; }
-.done__ic { width: 76px; height: 76px; border-radius: 50%; display: grid; place-items: center; background: var(--gold); color: var(--on-gold); animation: pop .6s var(--ease) both; }
-.done__ic svg { width: 38px; height: 38px; }
-.done h3 { font-size: clamp(40px, 6vw, 56px); }
-.done__when { font-size: 20px; font-weight: 800; }
-.done .btn { width: 100%; }
-@keyframes pop { from { transform: scale(.4); opacity: 0; } }
 .msg { min-height: 1.6em; margin-top: 10px; text-align: center; font-size: 15px; color: var(--gold-2); }
 .fine { text-align: center; font-size: 13px; color: var(--muted); }
 @media (min-width: 960px) {
@@ -373,41 +362,27 @@ h2 { font-size: clamp(40px, 6.4vw, 88px); margin-top: 14px; text-wrap: balance; 
       <header class="head">
         <p class="kicker" data-r>Online randevu</p>
         <h2 data-r style="--d:1">Sıranı hemen ayır.</h2>
-        <p data-r style="--d:2">Telefon trafiği yok, kapıda beklemek yok. Boş saatleri canlı gör, randevun anında ustanın takvimine düşsün.</p>
+        <p data-r style="--d:2">Telefon trafiği yok, kapıda beklemek yok. Saatini seç, randevun WhatsApp'tan ustaya gitsin.</p>
         <ul class="perks" data-r style="--d:3">
           <li><svg><use href="#i-check"/></svg>Üyelik yok, ücret yok</li>
           <li><svg><use href="#i-check"/></svg>Gece yarısı bile randevu al</li>
           <li><svg><use href="#i-check"/></svg>İptal ya da değişiklik tek mesaj</li>
         </ul>
       </header>
-      <div data-r style="--d:1">
-      <form class="card" id="ticket" novalidate>
+      <form class="card" id="ticket" data-r style="--d:1" novalidate>
         <div class="step"><h3><span>1</span>Hizmet</h3><div class="chips" id="t-svc"></div></div>
         <div class="step"><h3><span>2</span>Gün</h3><div class="days" id="t-day"></div></div>
         <div class="step"><h3><span>3</span>Saat</h3><div class="times" id="t-time"></div></div>
-        <div class="step"><h3><span>4</span>Bilgilerin</h3>
-          <div class="fields">
-            <label class="field"><span class="sr">Adın soyadın</span><input id="t-name" autocomplete="name" placeholder="Adın soyadın"></label>
-            <label class="field"><span class="sr">Telefonun</span><input id="t-phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Telefonun (05xx xxx xx xx)"></label>
-          </div>
+        <div class="step"><h3><span>4</span>Adın</h3>
+          <label class="field"><span class="sr">Adın soyadın</span><input id="t-name" autocomplete="name" placeholder="Adın soyadın"></label>
         </div>
         <div class="summary">
           <div class="sum"><div class="sum__list" id="t-list"></div><div class="sum__total" id="t-total"></div></div>
-          <button class="btn send" type="submit" id="t-send">Randevuyu al</button>
+          <button class="btn send" type="submit"><svg><use href="#i-wa"/></svg>Randevuyu gönder</button>
           <p class="msg" id="t-msg" aria-live="polite"></p>
-          <p class="fine" id="t-fine">Usta onaylayınca randevun kesinleşir.</p>
+          <p class="fine">Usta onaylayınca randevun kesinleşir.</p>
         </div>
       </form>
-      <div class="card done" id="done" hidden>
-        <span class="done__ic"><svg><use href="#i-check"/></svg></span>
-        <h3 class="display">Randevun alındı!</h3>
-        <p class="done__when" id="done-when"></p>
-        <p class="muted" id="done-what"></p>
-        <a class="btn" id="done-wa" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Ustaya WhatsApp'tan haber ver</a>
-        <button class="btn btn--ghost" type="button" id="done-new">Yeni randevu al</button>
-        <p class="fine">İptal ya da değişiklik için WhatsApp'tan yazman yeterli.</p>
-      </div>
-      </div>
     </div>
   </section>
 
@@ -508,9 +483,6 @@ const CONFIG = {
   leadMinutes: 30,     // en erken kaç dakika sonrasına randevu
   daysAhead: 14,       // kaç gün ilerisi seçilebilir
 
-  // Online randevu (Supabase). url'i boş bırakırsan site sadece WhatsApp mesajıyla çalışır.
-  booking: { url: '', key: '', shop: '' },
-
   priceNote: "Hizmet ve fiyatlar örnektir. Güncel fiyat için WhatsApp'tan sorabilirsin.",
   services: [
     { cat: 'Saç', img: '../kuafor-ortak/sac.jpg', items: [
@@ -572,7 +544,7 @@ const tl = n => n.toLocaleString('tr-TR') + ' ₺';
 const hoursOf = d => CONFIG.hours[DAY_KEYS[d.getDay()]];
 
 // Bir gün için seçilebilir başlangıç saatleri (gece yarısından dakika).
-// ponytail: dolu saatleri bilmiyor (sunucu yok); usta WhatsApp'ta onaylar. Gerçek doluluk için Supabase eklenecek.
+// ponytail: dolu saatleri bilmiyor (sunucu yok); usta WhatsApp'ta onaylar. Online sürüm: _arsiv-online-randevu/
 function slots(day, dur, now, h = hoursOf(day), step = CONFIG.slotMinutes, lead = CONFIG.leadMinutes) {
   if (!h) return [];
   const out = [];
@@ -590,31 +562,6 @@ const startOfDay = d => { const x = new Date(d); x.setHours(0, 0, 0, 0); return 
 const days = Array.from({ length: CONFIG.daysAhead }, (_, i) => { const d = startOfDay(new Date()); d.setDate(d.getDate() + i); return d; });
 const duration = () => [...state.cart].reduce((a, id) => a + byId[id].min, 0) || CONFIG.slotMinutes;
 const total = () => [...state.cart].reduce((a, id) => a + byId[id].price, 0);
-
-// Dolu saatler (Supabase). busy = [[başlangıçMs, bitişMs], ...]
-const API = CONFIG.booking && CONFIG.booking.url;
-let busy = [];
-const at = (day, m) => { const t = new Date(day); t.setHours(0, m, 0, 0); return +t; };
-const isFree = (day, m, dur) => { const s = at(day, m), e = s + dur * 60000; return !busy.some(([bs, be]) => s < be && bs < e); };
-const freeSlots = (day, dur, now) => slots(day, dur, now).filter(m => isFree(day, m, dur));
-const rpc = (fn, body) => fetch(`${CONFIG.booking.url}/rest/v1/rpc/${fn}`, {
-  method: 'POST', headers: { apikey: CONFIG.booking.key, 'Content-Type': 'application/json' }, body: JSON.stringify(body),
-}).then(async r => { const j = await r.json().catch(() => null); if (!r.ok) throw new Error(j && j.message || 'network'); return j; });
-async function loadBusy() {
-  if (!API) return;
-  try {
-    const rows = await rpc('busy_slots', { p_shop: CONFIG.booking.shop, p_from: days[0].toISOString(), p_to: new Date(+days.at(-1) + 864e5).toISOString() });
-    busy = rows.map(r => [Date.parse(r.starts_at), Date.parse(r.ends_at)]);
-  } catch { /* ağ yoksa son bilinen liste kalır; gönderirken veritabanı çakışmayı yine engeller */ }
-  pickFirstOpenDay(); renderStatus(); renderDays(); renderTimes();
-}
-const ERRORS = {
-  slot_taken: 'Bu saat az önce doldu. Başka bir saat seç.',
-  bad_time: 'Bu saat geçti. Başka bir saat seç.',
-  bad_phone: 'Telefon numaranı kontrol et.',
-  bad_name: 'Adını kontrol et.',
-  too_many: "Bu numarayla zaten 2 aktif randevun var. Değişiklik için bize WhatsApp'tan yaz.",
-};
 
 function fillStatic() {
   $$('[data-c]').forEach(el => { const v = CONFIG[el.dataset.c]; if (v != null) el.textContent = v; });
@@ -678,32 +625,31 @@ function setCat(i) {
 
 function renderStatus() {
   const now = new Date(), h = hoursOf(now);
-  const first = freeSlots(startOfDay(now), CONFIG.slotMinutes, now)[0];
+  const first = slots(startOfDay(now), CONFIG.slotMinutes, now)[0];
   const next = days.slice(1).find(d => hoursOf(d));
   const nextTxt = next ? `${days.indexOf(next) === 1 ? 'Yarın' : DAY_NAMES[next.getDay()]} ${hoursOf(next)[0]}'da açılıyor` : '';
   $('#live').classList.toggle('closed', !h || first == null);
   $('#status').textContent = !h ? `Bugün kapalı · ${nextTxt}`
-    : first != null ? `Bugün açık · En erken randevu ${fmt(first)}`
+    : first != null ? `Bugün açık · ${h.join('–')}`
     : `Bugünlük kapandı · ${nextTxt}`;
 }
 
 function renderDays() {
   const now = new Date(), dur = duration();
   $('#t-day').innerHTML = days.map((d, i) => {
-    const open = freeSlots(d, dur, now).length > 0, why = slots(d, dur, now).length ? 'Dolu' : 'Kapalı';
+    const open = slots(d, dur, now).length > 0;
     const label = i === 0 ? 'Bugün' : i === 1 ? 'Yarın' : DAY_NAMES[d.getDay()].slice(0, 3);
     return `<label class="pick"><input type="radio" name="day" value="${+d}"${open ? '' : ' disabled'}${+d === state.day ? ' checked' : ''}>
-      <span><small>${label}</small><b>${d.getDate()}</b><small>${open ? d.toLocaleDateString('tr-TR', { month: 'short' }) : why}</small></span></label>`;
+      <span><small>${label}</small><b>${d.getDate()}</b><small>${open ? d.toLocaleDateString('tr-TR', { month: 'short' }) : 'Kapalı'}</small></span></label>`;
   }).join('');
 }
 
 function renderTimes() {
   if (state.day == null) { $('#t-time').innerHTML = '<p class="empty">Önce gün seç.</p>'; return; }
   const list = slots(new Date(state.day), duration(), new Date());
-  const free = m => isFree(state.day, m, duration());
-  if (state.time != null && (!list.includes(state.time) || !free(state.time))) state.time = null;
+  if (!list.includes(state.time)) state.time = null;
   $('#t-time').innerHTML = list.length
-    ? list.map(m => `<label class="pick"><input type="radio" name="time" value="${m}"${free(m) ? '' : ' disabled'}${m === state.time ? ' checked' : ''}><span>${fmt(m)}</span></label>`).join('')
+    ? list.map(m => `<label class="pick"><input type="radio" name="time" value="${m}"${m === state.time ? ' checked' : ''}><span>${fmt(m)}</span></label>`).join('')
     : '<p class="empty">Bu gün için uygun saat kalmadı.</p>';
 }
 
@@ -717,8 +663,8 @@ function renderCart() {
 
 function pickFirstOpenDay() {
   const now = new Date(), dur = duration();
-  if (state.day == null || !freeSlots(new Date(state.day), dur, now).length) {
-    const d = days.find(d => freeSlots(d, dur, now).length);
+  if (state.day == null || !slots(new Date(state.day), dur, now).length) {
+    const d = days.find(d => slots(d, dur, now).length);
     state.day = d ? +d : null;
   }
 }
@@ -733,49 +679,23 @@ document.addEventListener('change', e => {
   else if (t.name === 'time') { state.time = +t.value; }
 });
 
-$('#ticket').addEventListener('submit', async e => {
+$('#ticket').addEventListener('submit', e => {
   e.preventDefault();
-  const name = $('#t-name').value.trim(), phone = $('#t-phone').value.trim(), msg = $('#t-msg');
-  const missing = !state.cart.size ? 'Bir hizmet seç' : state.time == null ? 'Bir saat seç' : !name ? 'Adını yaz'
-    : API && phone.replace(/\D/g, '').length < 10 ? 'Telefonunu yaz' : '';
-  if (missing) { msg.textContent = missing + ', sonra gönder.'; return; }
-  const start = at(state.day, state.time);
-  const when = new Date(start).toLocaleDateString('tr-TR', { weekday: 'long', day: 'numeric', month: 'long' }) + ' · ' + fmt(state.time);
-  const what = [...state.cart].map(id => byId[id].name).join(', ');
-  const text = `Merhaba, siteden randevu ${API ? 'aldım' : 'almak istiyorum'}.\n\n`
-    + `Ad: ${name}${phone ? '\nTelefon: ' + phone : ''}\nZaman: ${when}\nHizmet: ${what}\n`
+  const name = $('#t-name').value.trim();
+  const missing = !state.cart.size ? 'Bir hizmet seç' : state.time == null ? 'Bir saat seç' : !name ? 'Adını yaz' : '';
+  if (missing) { $('#t-msg').textContent = missing + ', sonra gönder.'; return; }
+  $('#t-msg').textContent = '';
+  const d = new Date(state.day).toLocaleDateString('tr-TR', { weekday: 'long', day: 'numeric', month: 'long' });
+  const text = `Merhaba, siteden randevu almak istiyorum.\n\n`
+    + `Ad: ${name}\nGün: ${d}\nSaat: ${fmt(state.time)}\n`
+    + `Hizmet: ${[...state.cart].map(id => byId[id].name).join(', ')}\n`
     + `Süre: ~${duration()} dk · Tutar: ${tl(total())}`;
-  const wa = 'https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(text);
-  if (!API) { location.href = wa; return; }
-
-  const btn = $('#t-send'); btn.disabled = true; btn.textContent = 'Kaydediliyor…'; msg.textContent = '';
-  try {
-    await rpc('book', { p_shop: CONFIG.booking.shop, p_start: new Date(start).toISOString(), p_minutes: duration(),
-      p_name: name, p_phone: phone, p_services: what, p_total: total() });
-    $('#done-when').textContent = when;
-    $('#done-what').textContent = `${what} · ${tl(total())}`;
-    $('#done-wa').href = wa;
-    $('#ticket').hidden = true; $('#done').hidden = false;
-    $('#done').scrollIntoView({ behavior: 'smooth', block: 'center' });
-    loadBusy();
-  } catch (err) {
-    msg.textContent = ERRORS[err.message] || 'Bağlantı sorunu oldu. Tekrar dene ya da bizi ara.';
-    if (err.message === 'slot_taken' || err.message === 'bad_time') loadBusy();
-  } finally {
-    btn.disabled = false; btn.textContent = 'Randevuyu al';
-  }
-});
-
-$('#done-new').addEventListener('click', () => {
-  state.cart.clear(); state.time = null;
-  $('#done').hidden = true; $('#ticket').hidden = false;
-  pickFirstOpenDay(); renderCart(); renderDays(); renderTimes();
+  location.href = 'https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(text);
 });
 
 fillStatic();
 pickFirstOpenDay();
 renderStatus(); renderCart(); renderDays(); renderTimes();
-if (API) { $('#t-fine').textContent = 'Randevun anında kesinleşir. Dolu saatler üstü çizili görünür.'; loadBusy(); setInterval(loadBusy, 60000); }
 
 // üst bar, alt bar, giriş animasyonları
 const topBar = $('#top'), dock = $('#dock');
@@ -794,11 +714,6 @@ if (location.hash === '#test') {
   console.assert(slots(day, 60, before, h, 30, 30).at(-1) === toMin('19:00'), 'uzun hizmet kapanışı geçmez');
   console.assert(slots(day, 30, new Date(2026, 9, 27, 12, 10), h, 30, 30)[0] === toMin('13:00'), '30 dk önceden');
   console.assert(slots(day, 30, before, null).length === 0, 'kapalı gün boş');
-  const saved = busy; busy = [[at(day, toMin('10:00')), at(day, toMin('10:30'))]];
-  console.assert(!isFree(day, toMin('10:00'), 30), 'dolu saat');
-  console.assert(!isFree(day, toMin('09:45'), 30), 'dolu saate taşan');
-  console.assert(isFree(day, toMin('10:30'), 30) && isFree(day, toMin('09:30'), 30), 'bitişik saatler boş');
-  busy = saved;
   console.log('self-test bitti');
 }
 </script>
