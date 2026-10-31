@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kobra Askeri Malzeme · Şehreküstü, Bursa</title>
+<meta name="description" content="Askeri, polis, özel güvenlik ve iş elbiseleri. Kişiye özel isimlik, imalat ve toptan. Şehreküstü, Osmangazi / Bursa.">
+<meta name="theme-color" content="#0f120c">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:url" content="https://miletosstudio.com/demo/kobra-askeri-malzeme/">
+<meta property="og:title" content="Kobra Askeri Malzeme">
+<meta property="og:description" content="Askeri, polis, özel güvenlik ve iş elbiseleri. İsimliğinizi yazın, WhatsApp'tan sipariş verin.">
+<meta property="og:image" content="https://miletosstudio.com/demo/kobra-askeri-malzeme/onizleme.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Instrument+Serif:ital@1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/dukkan.jpg">
+<script>document.documentElement.className = 'js'</script>
+<style>
+/* ===== RENKLER: 2 ana renk (gece zeytini + kum) + 1 sürpriz (blaze turuncu) ===== */
+:root {
+  --bg: #0f120c;
+  --bg-2: #161a11;
+  --bg-3: #1f2518;
+  --olive: #3a4429;
+  --sand: #ece4d0;
+  --muted: #b3ad99;
+  --blaze: #ff6a1f;      /* sadece butonlar, ışık ve 1-2 vurgu */
+  --on-blaze: #1a0c03;
+  --ok: #7fd37a;
+
+  --display: "Big Shoulders Display", Impact, "Arial Narrow", sans-serif;
+  --serif: "Instrument Serif", Georgia, serif;
+  --sans: "Manrope", system-ui, sans-serif;
+  --r: 22px;
+  --m: clamp(16px, 4vw, 48px);
+  --max: 1280px;
+  --sec: clamp(96px, 12vw, 180px);
+  --ease: cubic-bezier(.2, .7, .2, 1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; scroll-padding-top: 80px; }
+body { background: var(--bg); color: var(--sand); font: 500 17px/1.6 var(--sans); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+button, input, select { font: inherit; color: inherit; }
+svg { width: 1.15em; height: 1.15em; flex: none; }
+:focus-visible { outline: 2px solid var(--blaze); outline-offset: 3px; }
+::selection { background: var(--blaze); color: var(--on-blaze); }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--m); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+em.s { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: 0; text-transform: none; }
+
+/* butonlar */
+.btn { display: inline-flex; align-items: center; gap: .55em; padding: 15px 24px; border-radius: 999px; font-weight: 800; font-size: 16px; transition: transform .25s var(--ease), background .25s, box-shadow .25s; white-space: nowrap; }
+.btn:active { transform: scale(.97); }
+.btn-blaze { background: var(--blaze); color: var(--on-blaze); box-shadow: 0 10px 40px -10px rgb(255 106 31 / .7); }
+.btn-blaze:hover { transform: translateY(-2px); box-shadow: 0 16px 50px -10px rgb(255 106 31 / .9); }
+.btn-ghost { background: rgb(236 228 208 / .08); color: var(--sand); }
+.btn-ghost:hover { background: rgb(236 228 208 / .15); }
+
+/* üst bar */
+.bar { position: fixed; inset: 0 0 auto 0; z-index: 50; transition: background .3s; }
+.bar.dolu { background: rgb(15 18 12 / .82); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+.bar .wrap { display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 24px; }
+.logo { font: 900 30px/1 var(--display); letter-spacing: .02em; display: flex; align-items: center; gap: 10px; }
+.logo i { width: 10px; height: 10px; border-radius: 50%; background: var(--blaze); box-shadow: 0 0 16px var(--blaze); }
+.bar nav { display: flex; gap: 30px; font-weight: 700; font-size: 15px; }
+.bar nav a { opacity: .8; transition: opacity .2s; }
+.bar nav a:hover { opacity: 1; }
+.bar .btn { padding: 11px 18px; font-size: 15px; }
+
+/* HERO */
+.hero { position: relative; padding: 140px 0 0; isolation: isolate; overflow: hidden; }
+.hero::before { /* turuncu ışık */
+  content: ""; position: absolute; z-index: -1; left: 50%; bottom: -30%; width: 140vw; height: 90vh; transform: translateX(-50%);
+  background: radial-gradient(closest-side, rgb(255 106 31 / .55), rgb(255 106 31 / .14) 45%, transparent 75%);
+}
+.hero::after { /* zeytin ışık */
+  content: ""; position: absolute; z-index: -2; right: -20vw; top: -20vh; width: 70vw; height: 80vh;
+  background: radial-gradient(closest-side, rgb(90 108 60 / .45), transparent 70%);
+}
+.hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(24px, 4vw, 64px); align-items: end; }
+.hero h1 { font: 900 clamp(64px, 9.6vw, 156px)/.86 var(--display); text-transform: uppercase; letter-spacing: -.01em; }
+.hero h1 em.s { font-size: .82em; color: var(--blaze); display: inline-block; padding-right: .06em; }
+.hero p.alt { font-size: clamp(18px, 1.6vw, 21px); max-width: 34ch; margin: 28px 0 32px; color: var(--sand); opacity: .9; }
+.hero .cta { display: flex; gap: 12px; flex-wrap: wrap; }
+.hero-foto { position: relative; border-radius: 28px; overflow: hidden; aspect-ratio: 4/5; box-shadow: 0 40px 80px -30px rgb(0 0 0 / .8); }
+.hero-foto img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.06); }
+.hero-foto figcaption { position: absolute; left: 14px; bottom: 14px; font-size: 13px; font-weight: 700; padding: 7px 12px; border-radius: 999px; background: rgb(15 18 12 / .55); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+
+/* hero altına taşan cam kartlar */
+.kartlar { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 56px; transform: translateY(50%); }
+.cam { background: rgb(31 37 24 / .62); backdrop-filter: blur(18px) saturate(1.3); -webkit-backdrop-filter: blur(18px) saturate(1.3); border: 1px solid rgb(236 228 208 / .1); border-radius: var(--r); padding: 22px 24px; box-shadow: 0 30px 60px -30px rgb(0 0 0 / .9); }
+.cam b { display: block; font: 800 30px/1.05 var(--display); text-transform: uppercase; letter-spacing: .01em; }
+.cam span { color: var(--muted); font-size: 15px; }
+.acik-nokta { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--ok); margin-right: 8px; box-shadow: 0 0 0 0 rgb(127 211 122 / .6); animation: nabiz 2s infinite; vertical-align: middle; }
+.acik-nokta.kapali { background: #c9573a; animation: none; }
+@keyframes nabiz { 70% { box-shadow: 0 0 0 10px rgb(127 211 122 / 0); } 100% { box-shadow: 0 0 0 0 rgb(127 211 122 / 0); } }
+.yildiz { color: var(--blaze); letter-spacing: 2px; }
+.mini-isim { display: flex; align-items: center; justify-content: center; height: 40px; margin-top: 8px; border-radius: 6px; background: url(img/kamuflaj.jpg) center/cover; color: #111; font: 900 22px/1 var(--display); letter-spacing: .08em; outline: 1px dashed rgb(0 0 0 / .45); outline-offset: -5px; }
+.cam a.ok { color: var(--blaze); font-weight: 800; font-size: 15px; }
+
+/* bölüm başlıkları */
+.bas { display: flex; justify-content: space-between; align-items: end; gap: 32px; margin-bottom: 48px; flex-wrap: wrap; }
+.bas h2 { font: 900 clamp(48px, 6.4vw, 104px)/.88 var(--display); text-transform: uppercase; max-width: 12ch; }
+.bas p { max-width: 38ch; color: var(--sand); opacity: .85; }
+
+/* ÜRÜNLER: bento */
+#urunler { padding-top: calc(var(--sec) + 60px); }
+.bento { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 260px; gap: 14px; }
+.u { position: relative; border-radius: var(--r); overflow: hidden; background: var(--bg-3); isolation: isolate; }
+.u img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; transition: transform .7s var(--ease); }
+.u:hover img { transform: scale(1.06); }
+.u::after { content: ""; position: absolute; inset: 40% 0 0; z-index: -1; background: linear-gradient(transparent, rgb(10 12 8 / .92)); }
+.u .ic { position: absolute; left: 20px; right: 20px; bottom: 18px; display: flex; justify-content: space-between; align-items: end; gap: 12px; }
+.u h3 { font: 800 clamp(26px, 2.4vw, 36px)/.95 var(--display); text-transform: uppercase; }
+.u small { display: block; font-size: 14px; color: var(--sand); opacity: .8; margin-top: 6px; font-weight: 600; }
+.u .sor { flex: none; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: rgb(236 228 208 / .14); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); transition: background .2s, transform .2s; }
+.u:hover .sor { background: var(--blaze); color: var(--on-blaze); transform: rotate(-45deg); }
+.u.b1 { grid-column: span 2; grid-row: span 2; }
+.u.b2 { grid-row: span 2; }
+.u.b5 { grid-column: span 2; }
+
+/* İSİMLİK */
+#isimlik { margin-top: var(--sec); position: relative; isolation: isolate; }
+.isim-kutu { position: relative; overflow: hidden; border-radius: 36px; background: var(--bg-2); padding: clamp(28px, 5vw, 72px); display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 72px); align-items: center; }
+.isim-kutu::before { content: ""; position: absolute; z-index: -1; right: -10%; top: -30%; width: 70%; height: 120%; background: radial-gradient(closest-side, rgb(255 106 31 / .28), transparent 70%); }
+.isim-kutu h2 { font: 900 clamp(48px, 5.6vw, 92px)/.88 var(--display); text-transform: uppercase; }
+.isim-kutu h2 em.s { color: var(--blaze); font-size: .85em; }
+.isim-kutu p.alt { margin: 20px 0 0; max-width: 40ch; opacity: .9; }
+.sahne { position: relative; border-radius: 26px; background: var(--olive); padding: clamp(32px, 5vw, 64px) clamp(20px, 4vw, 40px); display: grid; place-items: center; gap: 16px; min-height: 300px; isolation: isolate; overflow: hidden; }
+.sahne::before { content: ""; position: absolute; inset: 0; z-index: -1; background: url(img/mont.jpg) center/cover; opacity: .16; filter: saturate(.6) blur(2px); }
+.serit { width: min(100%, 420px); aspect-ratio: 4.6/1; border-radius: 8px; display: grid; place-items: center; padding: 0 18px; font: 900 clamp(26px, 4.2vw, 46px)/1 var(--display); letter-spacing: .1em; text-transform: uppercase; white-space: nowrap; overflow: hidden; outline: 2px dashed rgb(0 0 0 / .4); outline-offset: -8px; box-shadow: 0 24px 40px -18px rgb(0 0 0 / .8), inset 0 0 0 1px rgb(255 255 255 / .06); transition: background .3s, color .3s; }
+.serit.kamuflaj { background: url(img/kamuflaj.jpg) center/cover; color: #121410; }
+.serit.haki { background: #5b6338; color: #15170f; }
+.serit.siyah { background: #141414; color: #e9e3d1; outline-color: rgb(255 255 255 / .3); }
+.serit.lacivert { background: #1c2a4a; color: #f1f1f1; outline-color: rgb(255 255 255 / .3); }
+.kan { display: none; padding: 10px 18px; border-radius: 8px; font: 900 26px/1 var(--display); letter-spacing: .08em; background: #b4231f; color: #fff; outline: 2px dashed rgb(255 255 255 / .35); outline-offset: -6px; }
+.kan.var { display: block; }
+.form { display: grid; gap: 14px; margin-top: 28px; }
+.form label { font-size: 14px; font-weight: 700; color: var(--muted); display: grid; gap: 8px; }
+.form input[type=text], .form select { width: 100%; padding: 15px 18px; border-radius: 14px; border: 1px solid rgb(236 228 208 / .16); background: rgb(15 18 12 / .7); font-weight: 700; font-size: 18px; color: var(--sand); text-transform: uppercase; }
+.form select { text-transform: none; }
+.renkler { display: flex; gap: 10px; flex-wrap: wrap; }
+.renkler button { padding: 10px 16px; border-radius: 999px; border: 1px solid rgb(236 228 208 / .18); background: transparent; font-weight: 700; font-size: 15px; cursor: pointer; transition: background .2s, color .2s, border-color .2s; }
+.renkler button[aria-pressed=true] { background: var(--sand); color: var(--bg); border-color: var(--sand); }
+.form .btn { justify-self: start; margin-top: 6px; cursor: pointer; border: 0; }
+.not { font-size: 14px; color: var(--muted); }
+
+/* İMALAT & TOPTAN */
+#toptan { margin-top: var(--sec); }
+.toptan { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(24px, 5vw, 80px); align-items: center; }
+.toptan .foto { border-radius: 28px; overflow: hidden; aspect-ratio: 4/5; }
+.toptan .foto img { width: 100%; height: 100%; object-fit: cover; }
+.toptan h2 { font: 900 clamp(48px, 6vw, 98px)/.88 var(--display); text-transform: uppercase; }
+.toptan h2 em.s { color: var(--blaze); font-size: .85em; }
+.toptan p.alt { margin: 24px 0; max-width: 46ch; opacity: .9; }
+.kim { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 28px 0 32px; }
+.kim li { padding: 18px 20px; border-radius: 18px; background: var(--bg-2); font-weight: 700; }
+.kim li span { display: block; color: var(--muted); font-weight: 500; font-size: 14px; margin-top: 2px; }
+
+/* MAĞAZA + YORUMLAR */
+#magaza { margin-top: var(--sec); }
+.ic-foto { position: relative; border-radius: 36px; overflow: hidden; aspect-ratio: 16/8; isolation: isolate; }
+.ic-foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
+.ic-foto::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgb(10 12 8 / .85), rgb(10 12 8 / .1) 65%); }
+.ic-foto .yazi { position: absolute; left: clamp(24px, 5vw, 64px); top: clamp(24px, 5vw, 64px); max-width: 560px; }
+.ic-foto h2 { font: 900 clamp(48px, 6vw, 98px)/.88 var(--display); text-transform: uppercase; }
+.ic-foto h2 em.s { color: var(--blaze); font-size: .85em; }
+.ic-foto p { margin-top: 16px; font-size: 18px; max-width: 40ch; }
+.yorumlar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: -70px; padding: 0 clamp(16px, 3vw, 40px); position: relative; z-index: 2; }
+.yorumlar blockquote { font-size: 17px; line-height: 1.5; }
+.yorumlar footer { margin-top: 14px; font-size: 14px; color: var(--muted); font-weight: 700; }
+.g-link { display: inline-flex; margin-top: 28px; font-weight: 800; color: var(--blaze); gap: 8px; align-items: center; }
+
+/* ZİYARET */
+#iletisim { margin-top: var(--sec); }
+.ziyaret { display: grid; grid-template-columns: 1fr 1.1fr; gap: 16px; }
+.z-kart { border-radius: 30px; background: var(--bg-2); padding: clamp(24px, 4vw, 48px); }
+.z-kart h2 { font: 900 clamp(48px, 5.4vw, 88px)/.88 var(--display); text-transform: uppercase; }
+.adres { font-size: 20px; font-weight: 700; margin: 22px 0 6px; }
+.adres + p { color: var(--muted); }
+.saatler { margin: 26px 0; display: grid; gap: 2px; }
+.saatler li { display: flex; justify-content: space-between; padding: 10px 14px; border-radius: 12px; font-weight: 600; }
+.saatler li.bugun { background: rgb(255 106 31 / .14); color: var(--sand); font-weight: 800; }
+.saatler li.bugun span:first-child::after { content: " · bugün"; color: var(--blaze); }
+.tel { display: grid; gap: 10px; margin-top: 8px; }
+.tel a { display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; border-radius: 16px; background: var(--bg-3); font-weight: 800; transition: background .2s; }
+.tel a:hover { background: var(--olive); }
+.tel a span { color: var(--muted); font-weight: 600; font-size: 14px; }
+.harita { border-radius: 30px; overflow: hidden; min-height: 420px; background: var(--bg-3); position: relative; }
+.harita iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; filter: grayscale(.4) contrast(1.05); }
+
+/* FOOTER */
+.son { margin-top: var(--sec); padding: 0 0 120px; position: relative; overflow: hidden; isolation: isolate; }
+.son::before { content: ""; position: absolute; z-index: -1; left: 50%; bottom: -40%; width: 120vw; height: 80%; transform: translateX(-50%); background: radial-gradient(closest-side, rgb(255 106 31 / .35), transparent 72%); }
+.dev { font: 900 clamp(90px, 25vw, 400px)/.8 var(--display); text-transform: uppercase; letter-spacing: -.01em; text-align: center; color: var(--sand); }
+.son .alt { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-top: 40px; color: var(--muted); font-size: 14px; }
+.son .alt a { color: var(--sand); font-weight: 700; }
+
+/* telefon alt bar */
+.alt-bar { display: none; }
+
+/* giriş animasyonu */
+.js .r { opacity: 0; transform: translateY(26px); transition: opacity .8s var(--ease), transform .8s var(--ease); transition-delay: var(--d, 0s); }
+.js .r.on { opacity: 1; transform: none; }
+.js .hero-foto img { transition: transform 1.6s var(--ease); }
+.js .hero-foto.on img { transform: scale(1); }
+@media (prefers-reduced-motion: reduce) {
+  .js .r { opacity: 1; transform: none; transition: none; }
+  .acik-nokta { animation: none; }
+  html { scroll-behavior: auto; }
+}
+
+/* TABLET */
+@media (max-width: 980px) {
+  .bar nav { display: none; }
+  .hero-grid, .isim-kutu, .toptan, .ziyaret { grid-template-columns: 1fr; }
+  .hero-foto { aspect-ratio: 4/3; }
+  .kartlar { grid-template-columns: 1fr 1fr; transform: translateY(40%); }
+  .kartlar .cam:last-child { grid-column: span 2; }
+  .bento { grid-template-columns: 1fr 1fr; grid-auto-rows: 220px; }
+  .u.b1 { grid-column: span 2; }
+  .u.b5 { grid-column: span 2; }
+  .yorumlar { grid-template-columns: 1fr; margin-top: 16px; padding: 0; }
+  .ic-foto { aspect-ratio: 4/3; }
+  .toptan .foto { aspect-ratio: 16/10; }
+}
+/* TELEFON */
+@media (max-width: 600px) {
+  body { font-size: 16px; padding-bottom: 76px; }
+  .bar .btn { display: none; }
+  .hero { padding-top: 104px; }
+  .hero h1 { font-size: clamp(54px, 16.5vw, 80px); }
+  .hero .cta .btn { flex: 1; justify-content: center; }
+  .hero-foto { aspect-ratio: 1/1; border-radius: 22px; }
+  .kartlar { grid-template-columns: 1fr; transform: none; margin-top: 16px; gap: 10px; }
+  .kartlar .cam:last-child { grid-column: auto; }
+  #urunler { padding-top: 80px; }
+  .bento { grid-auto-rows: 200px; gap: 10px; }
+  .u.b1, .u.b2 { grid-row: span 1; }
+  .u.b2 { grid-column: span 2; }
+  .isim-kutu { border-radius: 26px; }
+  .kim { grid-template-columns: 1fr; }
+  .ic-foto { aspect-ratio: 3/4; border-radius: 26px; }
+  .ic-foto::after { background: linear-gradient(180deg, rgb(10 12 8 / .9), rgb(10 12 8 / .1) 70%); }
+  .harita { min-height: 320px; }
+  .alt-bar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; position: fixed; z-index: 60; left: 10px; right: 10px; bottom: calc(10px + env(safe-area-inset-bottom)); padding: 8px; border-radius: 20px; background: rgb(22 26 17 / .85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgb(236 228 208 / .1); }
+  .alt-bar a { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 8px 4px; border-radius: 14px; font-size: 12px; font-weight: 800; }
+  .alt-bar a.wa { background: var(--blaze); color: var(--on-blaze); }
+}
+</style>
+</head>
+<body>
+
+<header class="bar" id="bar">
+  <div class="wrap">
+    <a href="#" class="logo" aria-label="Kobra Askeri Malzeme, başa dön"><i></i>KOBRA</a>
+    <nav aria-label="Bölümler">
+      <a href="#urunler">Ürünler</a>
+      <a href="#isimlik">İsimlik</a>
+      <a href="#toptan">İmalat &amp; toptan</a>
+      <a href="#iletisim">Mağaza</a>
+    </nav>
+    <a class="btn btn-blaze" data-wa="Merhaba, bir ürün hakkında bilgi almak istiyorum.">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.1-4.7-4.1-4.9-4.3-.1-.2-1.2-1.6-1.2-3s.8-2.2 1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.5c-.1.2-.3.3-.1.6.2.3.8 1.4 1.8 2.2 1.2 1.1 2.3 1.4 2.6 1.6.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3.1.2.1.7-.1 1.1Z"/></svg>
+      WhatsApp
+    </a>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <h1 class="r">Askeri malzeme <em class="s">Şehreküstü'de</em></h1>
+        <p class="alt r" style="--d:.1s">Askeri, polis, özel güvenlik ve iş elbiseleri. Bot, yelek, çanta, kişiye özel isimlik. Kendi imalatımız; perakende ve toptan.</p>
+        <div class="cta r" style="--d:.2s">
+          <a class="btn btn-blaze" data-wa="Merhaba, bir ürün hakkında bilgi almak istiyorum.">WhatsApp'tan sor</a>
+          <a class="btn btn-ghost" href="https://maps.google.com/?cid=13508959226249664013" target="_blank" rel="noopener">Yol tarifi</a>
+        </div>
+      </div>
+      <figure class="hero-foto r" style="--d:.15s">
+        <img src="img/dukkan.jpg" width="1200" height="1500" alt="Kobra Askeri Malzeme mağazasının önü: tabelada askeri, polis, özel güvenlik ve iş elbiseleri yazıyor; vitrinde botlar, çantalar ve yelekler.">
+        <figcaption>Küstü Sokak 1/2 · Şehreküstü metrosu yanı</figcaption>
+      </figure>
+    </div>
+
+    <div class="kartlar">
+      <div class="cam r" style="--d:.25s">
+        <span id="acik-yazi"><i class="acik-nokta" id="acik-nokta"></i>Haftanın 7 günü açık</span>
+        <b id="acik-saat">09:00 – 19:00</b>
+        <span id="acik-alt">Pazar dahil</span>
+      </div>
+      <div class="cam r" style="--d:.32s">
+        <span><span class="yildiz">★★★★</span> Google'da 3,9</span>
+        <b>184 yorum</b>
+        <span>"Güler yüzlü, çok ilgili personel"</span>
+      </div>
+      <div class="cam r" style="--d:.39s">
+        <span>İsimliğiniz şöyle görünür</span>
+        <div class="mini-isim" id="mini-isim">YILMAZ</div>
+        <a class="ok" href="#isimlik">Kendi adınızı yazın →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="urunler">
+  <div class="wrap">
+    <div class="bas">
+      <h2 class="r">Ne arıyorsanız <em class="s" style="color:var(--blaze)">rafta</em></h2>
+      <p class="r" style="--d:.1s">Aradığınızın stokta olup olmadığını gelmeden önce sorun. Bir ürüne dokunun, WhatsApp'ta mesajı hazır gelsin.</p>
+    </div>
+    <div class="bento">
+      <a class="u b1 r" data-wa="Merhaba, askeri kıyafet / kamuflaj takım soracaktım.">
+        <img src="img/komando.jpg" alt="Bere, yelek ve kamuflaj takım giydirilmiş manken" loading="lazy">
+        <div class="ic"><div><h3>Askeri kıyafet</h3><small>Kamuflaj takım, bere, tişört, iç giyim</small></div><span class="sor" aria-hidden="true">→</span></div>
+      </a>
+      <a class="u b2 r" style="--d:.06s" data-wa="Merhaba, bot / postal soracaktım. Numaram: ">
+        <img src="img/bot.jpg" alt="Kutusunun üstünde kum rengi taktik bot" loading="lazy">
+        <div class="ic"><div><h3>Bot &amp; postal</h3><small>Numaranızı yazın, stoğu söyleyelim</small></div><span class="sor" aria-hidden="true">→</span></div>
+      </a>
+      <a class="u r" style="--d:.12s" data-wa="Merhaba, taktik yelek soracaktım.">
+        <img src="img/yelek.jpg" alt="Kamuflaj desenli taktik yelek" loading="lazy">
+        <div class="ic"><div><h3>Taktik yelek</h3><small>Cepli, plakalı</small></div><span class="sor" aria-hidden="true">→</span></div>
+      </a>
+      <a class="u r" style="--d:.18s" data-wa="Merhaba, mont / softshell soracaktım.">
+        <img src="img/mont.jpg" alt="Kamuflaj desenli softshell mont" loading="lazy">
+        <div class="ic"><div><h3>Mont</h3><small>Softshell, kamuflaj</small></div><span class="sor" aria-hidden="true">→</span></div>
+      </a>
+      <a class="u b5 r" style="--d:.06s" data-wa="Merhaba, polis / özel güvenlik kıyafeti soracaktım.">
+        <img src="img/pantolon.jpg" alt="Siyah tişört ve haki kargo pantolon giymiş adam mağaza içinde" loading="lazy" style="object-position:50% 30%">
+        <div class="ic"><div><h3>Polis &amp; özel güvenlik</h3><small>Pantolon, tişört, kemer, iş elbisesi</small></div><span class="sor" aria-hidden="true">→</span></div>
+      </a>
+      <a class="u r" style="--d:.12s" data-wa="Merhaba, askeri çanta soracaktım.">
+        <img src="img/canta.jpg" alt="Kamuflaj desenli sırt çantası" loading="lazy">
+        <div class="ic"><div><h3>Çanta</h3><small>Sırt, bel, omuz</small></div><span class="sor" aria-hidden="true">→</span></div>
+      </a>
+      <a class="u r" style="--d:.18s" data-wa="Merhaba, fener / aksesuar soracaktım.">
+        <img src="img/fener.jpg" alt="Kutusunda şarjlı el feneri" loading="lazy">
+        <div class="ic"><div><h3>Fener &amp; aksesuar</h3><small>Şarjlı fener, cüzdan, kemer</small></div><span class="sor" aria-hidden="true">→</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="isimlik">
+  <div class="wrap">
+    <div class="isim-kutu">
+      <div>
+        <h2 class="r">İsimliğinizi <em class="s">yazın</em></h2>
+        <p class="alt r" style="--d:.08s">Yazıyı ve rengi seçin, önizlemeye bakın, siparişi WhatsApp'tan gönderin. Hazır olunca size WhatsApp'tan haber veriyoruz, boşuna gelip gitmiyorsunuz.</p>
+        <form class="form r" style="--d:.14s" id="isim-form">
+          <label>İsimlikte yazacak
+            <input type="text" id="isim-yazi" maxlength="16" value="YILMAZ" autocomplete="family-name" spellcheck="false">
+          </label>
+          <div>
+            <label id="renk-lbl" style="margin-bottom:8px">Zemin</label>
+            <div class="renkler" role="group" aria-labelledby="renk-lbl">
+              <button type="button" data-renk="kamuflaj" aria-pressed="true">Kamuflaj</button>
+              <button type="button" data-renk="haki" aria-pressed="false">Haki</button>
+              <button type="button" data-renk="siyah" aria-pressed="false">Siyah</button>
+              <button type="button" data-renk="lacivert" aria-pressed="false">Lacivert</button>
+            </div>
+          </div>
+          <label>Kan grubu bandı
+            <select id="kan">
+              <option value="">İstemiyorum</option>
+              <option>A Rh+</option><option>A Rh-</option><option>B Rh+</option><option>B Rh-</option>
+              <option>AB Rh+</option><option>AB Rh-</option><option>0 Rh+</option><option>0 Rh-</option>
+            </select>
+          </label>
+          <button class="btn btn-blaze" type="submit">Siparişi WhatsApp'tan gönder</button>
+          <p class="not">Adet, cırt (velcro) ve teslim günü için mesajda yazabilirsiniz.</p>
+        </form>
+      </div>
+      <div class="sahne r" style="--d:.1s" aria-live="polite">
+        <div class="serit kamuflaj" id="serit">YILMAZ</div>
+        <div class="kan" id="kan-serit"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="toptan">
+  <div class="wrap toptan">
+    <div class="foto r"><img src="img/sapka.jpg" alt="Mağaza girişinde yelekli manken, şapkalar ve aksesuar standı" loading="lazy"></div>
+    <div>
+      <h2 class="r">İmalat ve <em class="s">toptan</em></h2>
+      <p class="alt r" style="--d:.08s">Tabelamızda yazdığı gibi: imalat da yapıyoruz. Güvenlik firmaları, fabrikalar ve kurumlar için toplu sipariş, logolu iş elbisesi ve isimlik.</p>
+      <ul class="kim">
+        <li class="r" style="--d:.1s">Özel güvenlik firmaları<span>Takım, mont, yaka-kol armaları</span></li>
+        <li class="r" style="--d:.14s">Fabrika ve şantiye<span>İş elbisesi, yelek</span></li>
+        <li class="r" style="--d:.18s">Kurum ve okullar<span>Toplu isimlik, arma</span></li>
+        <li class="r" style="--d:.22s">Esnaf ve bayiler<span>Toptan fiyat</span></li>
+      </ul>
+      <a class="btn btn-blaze r" style="--d:.26s" data-wa="Merhaba, toplu / toptan sipariş için yazıyorum. Firma: , Ürün: , Adet: ">Toptan teklif iste</a>
+    </div>
+  </div>
+</section>
+
+<section id="magaza">
+  <div class="wrap">
+    <div class="ic-foto r">
+      <img src="img/ic.jpg" alt="Mağazanın içi: tavana kadar çantalar, yelekler, vitrinlerde aksesuarlar" loading="lazy">
+      <div class="yazi">
+        <h2>Gelin, <em class="s">deneyin</em></h2>
+        <p>Raflar tavana kadar dolu. Bedeninizi deneyin, aradığınızı sorun.</p>
+      </div>
+    </div>
+    <div class="yorumlar">
+      <figure class="cam r"><blockquote>"Her türlü askeri malzemenin uygun satıldığı, güler yüzlü çok ilgili personelin çalıştığı bir firma."</blockquote><footer>Google yorumu · 5 yıldız</footer></figure>
+      <figure class="cam r" style="--d:.08s"><blockquote>"Alışveriş yapmanıza gerek yok, çaya gidip abi kardeş gibi sohbet edebileceğiniz bölgenin sayılı esnaflarından."</blockquote><footer>Google yorumu · 5 yıldız</footer></figure>
+      <figure class="cam r" style="--d:.16s"><blockquote>"Fiyat-fayda dengesini en iyi yansıtan işletme. İşletme sahipleri son derece ilgili ve kibar."</blockquote><footer>Google yorumu · 5 yıldız</footer></figure>
+    </div>
+    <a class="g-link" href="https://maps.google.com/?cid=13508959226249664013" target="_blank" rel="noopener">184 yorumun hepsini Google'da okuyun →</a>
+  </div>
+</section>
+
+<section id="iletisim">
+  <div class="wrap ziyaret">
+    <div class="z-kart r">
+      <h2>Bizi <em class="s" style="color:var(--blaze)">bulun</em></h2>
+      <p class="adres">Şehreküstü Cad., Küstü Sk. No: 1/2<br>Osmangazi / Bursa</p>
+      <p>Şehreküstü metro durağının hemen yanında.</p>
+      <ul class="saatler" id="saatler">
+        <li data-g="1"><span>Pazartesi</span><span>09:00 – 19:00</span></li>
+        <li data-g="2"><span>Salı</span><span>09:00 – 19:00</span></li>
+        <li data-g="3"><span>Çarşamba</span><span>09:00 – 19:00</span></li>
+        <li data-g="4"><span>Perşembe</span><span>09:00 – 19:00</span></li>
+        <li data-g="5"><span>Cuma</span><span>09:00 – 19:00</span></li>
+        <li data-g="6"><span>Cumartesi</span><span>08:30 – 19:00</span></li>
+        <li data-g="0"><span>Pazar</span><span>09:30 – 19:00</span></li>
+      </ul>
+      <div class="tel">
+        <a data-wa="Merhaba, ">WhatsApp <span>0532 254 04 06</span></a>
+        <a href="tel:+905322540406">Cep <span>0532 254 04 06</span></a>
+        <a href="tel:+902242251429">Mağaza <span>0224 225 14 29</span></a>
+        <a href="https://www.instagram.com/kobra_askeri_malzeme/" target="_blank" rel="noopener">Instagram <span>@kobra_askeri_malzeme</span></a>
+      </div>
+    </div>
+    <div class="harita r" style="--d:.1s">
+      <iframe title="Kobra Askeri Malzeme haritada" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=40.1878476,29.0604399&z=17&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="son">
+  <div class="wrap">
+    <p class="dev" aria-hidden="true">KOBRA</p>
+    <div class="alt">
+      <span>Kobra Askeri Malzeme · Askeri, polis, özel güvenlik, iş elbiseleri · Osmangazi / Bursa</span>
+      <span>Örnek site: <a href="https://miletosstudio.com" target="_blank" rel="noopener">Miletos Studio</a></span>
+    </div>
+  </div>
+</footer>
+
+<nav class="alt-bar" aria-label="Hızlı iletişim">
+  <a href="tel:+905322540406"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Ara</a>
+  <a class="wa" data-wa="Merhaba, bir ürün hakkında bilgi almak istiyorum."><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Z"/></svg>WhatsApp</a>
+  <a href="https://maps.google.com/?cid=13508959226249664013" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Yol tarifi</a>
+</nav>
+
+<script>
+const CONFIG = { whatsapp: '905322540406' };
+const wa = t => 'https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(t);
+document.querySelectorAll('[data-wa]').forEach(a => { a.href = wa(a.dataset.wa); a.target = '_blank'; a.rel = 'noopener'; });
+
+/* üst bar */
+const bar = document.getElementById('bar');
+const kaydir = () => bar.classList.toggle('dolu', scrollY > 30);
+addEventListener('scroll', kaydir, { passive: true }); kaydir();
+
+/* şu an açık mı (Bursa saati) */
+const SAAT = { 0: ['09:30', '19:00'], 1: ['09:00', '19:00'], 2: ['09:00', '19:00'], 3: ['09:00', '19:00'], 4: ['09:00', '19:00'], 5: ['09:00', '19:00'], 6: ['08:30', '19:00'] };
+const tr = new Date(new Date().toLocaleString('en-US', { timeZone: 'Europe/Istanbul' }));
+const g = tr.getDay(), dk = tr.getHours() * 60 + tr.getMinutes();
+const d2 = s => +s.slice(0, 2) * 60 + +s.slice(3);
+const [ac, kap] = SAAT[g];
+const acik = dk >= d2(ac) && dk < d2(kap);
+document.getElementById('acik-yazi').innerHTML = '<i class="acik-nokta' + (acik ? '' : ' kapali') + '"></i>' + (acik ? 'Şu an açık' : 'Şu an kapalı');
+document.getElementById('acik-saat').textContent = acik ? kap + "'a kadar" : (dk < d2(ac) ? 'Bugün ' + ac + "'da" : 'Yarın ' + SAAT[(g + 1) % 7][0] + "'da");
+document.getElementById('acik-alt').textContent = 'Haftanın 7 günü açığız';
+document.querySelector('#saatler li[data-g="' + g + '"]').classList.add('bugun');
+
+/* isimlik önizleme */
+const yazi = document.getElementById('isim-yazi'), serit = document.getElementById('serit'), mini = document.getElementById('mini-isim');
+const kan = document.getElementById('kan'), kanS = document.getElementById('kan-serit');
+let renk = 'kamuflaj';
+const buyuk = s => s.toLocaleUpperCase('tr-TR');
+const ciz = () => {
+  const t = buyuk(yazi.value.trim()) || 'YILMAZ';
+  serit.textContent = t; mini.textContent = t;
+  serit.className = 'serit ' + renk;
+  kanS.textContent = kan.value; kanS.classList.toggle('var', !!kan.value);
+};
+yazi.addEventListener('input', ciz); kan.addEventListener('change', ciz);
+document.querySelectorAll('[data-renk]').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('[data-renk]').forEach(x => x.setAttribute('aria-pressed', x === b));
+  renk = b.dataset.renk; ciz();
+}));
+document.getElementById('isim-form').addEventListener('submit', e => {
+  e.preventDefault();
+  const adi = { kamuflaj: 'Kamuflaj', haki: 'Haki', siyah: 'Siyah', lacivert: 'Lacivert' }[renk];
+  const m = 'Merhaba, isimlik yaptırmak istiyorum.\nYazı: ' + (buyuk(yazi.value.trim()) || '-') + '\nZemin: ' + adi + (kan.value ? '\nKan grubu bandı: ' + kan.value : '') + '\nAdet: 1\nHazır olunca WhatsApp\'tan haber verir misiniz?';
+  open(wa(m), '_blank', 'noopener');
+});
+
+/* giriş animasyonu */
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } }), { threshold: .12, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.r').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
