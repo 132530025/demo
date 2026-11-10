@@ -21,27 +21,27 @@
 <script type="application/json" id="config">
 {
   "ad": "Anı Davet Organizasyon",
-  "tip": "kapali",
+  "tip": "kir",
   "ilce": "Mustafakemalpaşa",
   "adres": "Kayabaşı, Kayabaşı Sokak No :79, 16500 Mustafakemalpaşa/Bursa",
   "telefon": "0546 865 89 45",
   "whatsapp": "0546 865 89 45",
   "haritaLinki": "https://maps.google.com/?cid=13406464170422208456&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-  "instagram": "",
+  "instagram": "anieventhall",
+  "cumle": "Açık havada, ahşap kulübenin önünde; yaz akşamları sizin.",
   "kapasite": null,
   "kapasiteMin": null,
   "otopark": null,
   "kurulus": null,
-  "tanitim": "",
+  "tanitim": "Bahçede kurulan masalar, ahşap kulübede fotoğraf köşesi, hava kararınca yanan ışıklar. Mekânımız açık alan; yaz sezonunda hizmet veriyoruz.",
   "puan": "5,0",
   "yorum": 22,
   "etkinlikler": [
-    "Düğün",
-    "Nişan",
+    "Bride to be",
     "Kına gecesi",
+    "Nişan",
     "Söz",
-    "Sünnet düğünü",
-    "Kurumsal davet"
+    "Düğün"
   ],
   "gorusmeSaatleri": [
     [
@@ -49,9 +49,26 @@
       "10:00 – 22:00"
     ]
   ],
-  "fotograflar": [],
-  "hizmetler": [],
-  "sss": [],
+  "fotograflar": [
+    {"src": "1.jpg", "alt": "Ahşap kulübenin önünde yer minderli uzun masa", "odak": "50% 60%"},
+    {"src": "2.jpg", "alt": "Akşam ışıklarında bahçede kurulmuş masa"},
+    {"src": "3.jpg", "alt": "Çiçek süslemesi"},
+    {"src": "4.jpg", "alt": "Ahşap kulübede fotoğraf köşesi"},
+    {"src": "5.jpg", "alt": "Pasta ve gelin şapkası"}
+  ],
+  "hizmetler": [
+    {"ad": "Bahçede masa kurulumu", "durum": "Dahil", "detay": "Uzun masa, yer minderleri ve çiçek düzeni; kişi sayınıza göre kurulur.", "foto": 0},
+    {"ad": "Fotoğraf köşesi", "durum": "Dahil", "detay": "Ahşap kulübeyi bride to be, kına ya da nişan için süslüyoruz.", "foto": 3},
+    {"ad": "Akşam ışıkları", "durum": "Dahil", "detay": "Hava kararınca bahçe ışıkları yanar, gece de fotoğraf çekilir.", "foto": 1},
+    {"ad": "Çiçek ve süsleme", "durum": "İsteğe bağlı", "detay": "Renkleri ve konsepti birlikte seçiyoruz.", "foto": 2},
+    {"ad": "Pasta ve ikram", "durum": "İsteğe bağlı", "detay": "Pastanızı getirin ya da birlikte ayarlayalım.", "foto": 4}
+  ],
+  "sss": [
+    {"s": "Hangi aylarda hizmet veriyorsunuz?", "c": "Mekânımız açık alan olduğu için sadece yaz sezonunda hizmet veriyoruz. Gelecek yaz için tarihinizi şimdiden sorabilirsiniz."},
+    {"s": "Hava bozarsa ne oluyor?", "c": "Tarihe yakın hava durumunu birlikte takip ediyoruz; seçenekleri görüşmede konuşalım."},
+    {"s": "Kapora ne kadar, nasıl ödeniyor?", "c": "Tarihi kesinleştirmek için kapora alınır; oranı ve kalan ödeme planını görüşmede netleştiriyoruz."},
+    {"s": "Kaç kişilik etkinlik yapılabiliyor?", "c": "Kişi sayınızı yazın, masa düzenini ona göre kuralım."}
+  ],
   "konum": {
     "lat": 39.988971899999996,
     "lon": 28.373371799999997
@@ -60,7 +77,7 @@
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Anı Davet Organizasyon · Mustafakemalpaşa, Bursa</title>
-<meta name="description" content="Anı Davet Organizasyon: Mustafakemalpaşa, Bursa düğün salonu. Tarihinizi seçin, WhatsApp'tan müsaitliği sorun.">
+<meta name="description" content="Anı Davet Organizasyon: Mustafakemalpaşa, Bursa açık alan davet ve organizasyon. Tarihinizi seçin, WhatsApp'tan müsaitliği sorun.">
 <meta name="theme-color" content="#3f5a2a">
 <meta name="robots" content="noindex, nofollow">
 <meta property="og:url" content="https://miletosstudio.com/demo/ani-davet-organizasyon/">
@@ -642,14 +659,14 @@ const saat = m => { m = Math.round(m); return `${String(Math.floor(m / 60)).padS
 
 /* ---- Doldur ---- */
 document.title = `${C.ad} · ${C.ilce}, ${sehir}`;
-document.querySelector('meta[name="description"]').content = `${C.ad}: ${C.ilce}, ${sehir}. ${KIR ? "Kır düğünü bahçesi" : "Düğün salonu"}. Tarihinizi seçin, WhatsApp'tan müsaitliği sorun.`;
+document.querySelector('meta[name="description"]').content = `${C.ad}: ${C.ilce}, ${sehir}. ${KIR ? "Açık alan davet ve organizasyon" : "Düğün salonu"}. Tarihinizi seçin, WhatsApp'tan müsaitliği sorun.`;
 document.querySelectorAll("[data-ad]").forEach(e => e.textContent = C.ad);
 
 const heroAd = $("heroAd");
 heroAd.textContent = C.ad;
-$("heroYer").textContent = `${C.ilce}, ${sehir} · ${KIR ? "kır düğünü" : "düğün salonu"}`;
+$("heroYer").textContent = `${C.ilce}, ${sehir} · ${KIR ? "açık alan davet" : "düğün salonu"}`;
 heroAd.style.setProperty("--len", Math.max(16, C.ad.length));
-$("heroCumle").textContent = V.cumle;
+$("heroCumle").textContent = C.cumle || V.cumle;
 $("heroKareler").innerHTML = [0, 1, 2].map(i => `<div class="kare${i ? "" : " on"}">${img(F(i))}</div>`).join("");
 
 $("tanitim").textContent = C.tanitim || V.tanitim;
