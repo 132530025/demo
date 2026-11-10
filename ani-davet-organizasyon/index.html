@@ -52,16 +52,23 @@
   "fotograflar": [
     {"src": "1.jpg", "alt": "Ahşap kulübenin önünde yer minderli uzun masa", "odak": "50% 60%"},
     {"src": "2.jpg", "alt": "Akşam ışıklarında bahçede kurulmuş masa"},
-    {"src": "3.jpg", "alt": "Çiçek süslemesi"},
-    {"src": "4.jpg", "alt": "Ahşap kulübede fotoğraf köşesi"},
-    {"src": "5.jpg", "alt": "Pasta ve gelin şapkası"}
+    {"src": "3.jpg", "alt": "Ahşap kulübenin önünde bride to be"},
+    {"src": "4.jpg", "alt": "Kulübe önünde pasta"},
+    {"src": "5.jpg", "alt": "Akşam ışıklarında fotoğraf köşesi"},
+    {"src": "6.jpg", "alt": "Pembe ışıklı kulübe"},
+    {"src": "7.jpg", "alt": "Çimenin üstünde pasta keyfi"},
+    {"src": "8.jpg", "alt": "Arkadaşlarla bride to be masası"},
+    {"src": "9.jpg", "alt": "Kına gecesi köşesi"},
+    {"src": "10.jpg", "alt": "Çiçekli fon önünde nişan"},
+    {"src": "11.jpg", "alt": "Gelin şapkası ve pasta"},
+    {"src": "12.jpg", "alt": "Çiçek süslemesi"}
   ],
   "hizmetler": [
     {"ad": "Bahçede masa kurulumu", "durum": "Dahil", "detay": "Uzun masa, yer minderleri ve çiçek düzeni; kişi sayınıza göre kurulur.", "foto": 0},
-    {"ad": "Fotoğraf köşesi", "durum": "Dahil", "detay": "Ahşap kulübeyi bride to be, kına ya da nişan için süslüyoruz.", "foto": 3},
+    {"ad": "Fotoğraf köşesi", "durum": "Dahil", "detay": "Ahşap kulübeyi bride to be, kına ya da nişan için süslüyoruz.", "foto": 2},
     {"ad": "Akşam ışıkları", "durum": "Dahil", "detay": "Hava kararınca bahçe ışıkları yanar, gece de fotoğraf çekilir.", "foto": 1},
-    {"ad": "Çiçek ve süsleme", "durum": "İsteğe bağlı", "detay": "Renkleri ve konsepti birlikte seçiyoruz.", "foto": 2},
-    {"ad": "Pasta ve ikram", "durum": "İsteğe bağlı", "detay": "Pastanızı getirin ya da birlikte ayarlayalım.", "foto": 4}
+    {"ad": "Çiçek ve süsleme", "durum": "İsteğe bağlı", "detay": "Renkleri ve konsepti birlikte seçiyoruz.", "foto": 11},
+    {"ad": "Pasta ve ikram", "durum": "İsteğe bağlı", "detay": "Pastanızı getirin ya da birlikte ayarlayalım.", "foto": 6}
   ],
   "sss": [
     {"s": "Hangi aylarda hizmet veriyorsunuz?", "c": "Mekânımız açık alan olduğu için sadece yaz sezonunda hizmet veriyoruz. Gelecek yaz için tarihinizi şimdiden sorabilirsiniz."},
@@ -676,13 +683,13 @@ $("introNot").textContent = C.adres;
 
 $("galeriBaslik").textContent = V.galeriBaslik;
 $("galeri").insertAdjacentHTML("beforeend", foto.slice(0, 6).map((_, i) => `
-  <figure class="g${i + 1}"><div class="silme yuvarlak">${img(F(i))}</div>${F(i).alt ? `<figcaption>${esc(F(i).alt)}</figcaption>` : ""}</figure>`).join(""));
+  <figure class="g${i + 1}"><div class="silme yuvarlak">${img(F(i + 5))}</div>${F(i + 5).alt ? `<figcaption>${esc(F(i + 5).alt)}</figcaption>` : ""}</figure>`).join(""));
 
 $("hizmetFoto").innerHTML = hizmetler.map((h, i) => img(F(h.foto ?? i)).replace("<img", `<img data-i="${i}"${i ? "" : ' class="on"'}`)).join("");
 $("hizmetListe").innerHTML = hizmetler.map((h, i) => `
   <li${i ? "" : ' class="on"'} data-i="${i}"><button type="button" aria-expanded="${!i}">${esc(h.ad)}<span>${esc(h.durum || "")}</span></button><p><span>${esc(h.detay || "")}</span></p></li>`).join("");
 
-$("kapFoto").insertAdjacentHTML("afterbegin", img(F(1)));
+$("kapFoto").insertAdjacentHTML("afterbegin", img(F(11)));
 $("kapBaslik").textContent = "Misafirler anlatsın";
 $("kapSayi").innerHTML = `${C.yorum}<small>yorum</small>`;
 $("kapCumle").textContent = "Google Haritalar'da bu mekân için yazılan yorum sayısı.";
@@ -695,25 +702,25 @@ $("kapEk").innerHTML = [
   C.kapasiteMin && [`${C.kapasiteMin}+`, "kişilik nişan ve sözler"]
 ].filter(Boolean).slice(0, 3).map((x, i) => `<div class="gir" style="--i:${i + 2}"><b>${esc(x[0])}</b><span>${esc(x[1])}</span></div>`).join("");
 
-$("serit").innerHTML = [3, 4, 5].map(i => `<div>${img(F(i))}</div>`).join("");
+$("serit").innerHTML = [8, 3, 4].map(i => `<div>${img(F(i))}</div>`).join("");
 
 $("sssBilgi").innerHTML = `<p>${esc(C.adres)}</p><p>${esc(C.gorusmeSaatleri?.[0]?.join(" ") || "")}</p><p>${esc(C.telefon)}</p>`;
 $("sssListe").innerHTML = sss.map(q => `<details class="gir"><summary>${esc(q.s)}</summary><p>${esc(q.c)}</p></details>`).join("");
-$("sssFoto1").innerHTML = img(F(4));
-$("sssFoto2").innerHTML = img(F(5));
+$("sssFoto1").innerHTML = img(F(7));
+$("sssFoto2").innerHTML = img(F(10));
 
 const telHref = "tel:+" + waNo(C.telefon);
 const harita = C.haritaLinki || "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(`${C.ad} ${C.adres}`);
 $("aramaLink").href = telHref;
 $("aramaLink").textContent = `ya da arayın: ${C.telefon}`;
-$("iletFoto").innerHTML = img(F(2));
+$("iletFoto").innerHTML = img(F(9));
 $("iletAdres").textContent = C.adres;
 $("iletSaat").innerHTML = (C.gorusmeSaatleri || []).map(r => `<tr><td>${esc(r[0])}</td><td>${esc(r[1])}</td></tr>`).join("");
 $("iletTel").href = telHref;
 $("iletTel").textContent = C.telefon;
 $("yolBtn").href = harita;
 
-$("altFoto").innerHTML = img(F(0));
+$("altFoto").innerHTML = img(F(1));
 $("altIletisim").innerHTML = `${esc(C.adres)}<br><a href="${telHref}">${esc(C.telefon)}</a>`;
 $("altSosyal").innerHTML = [
   `<a href="https://wa.me/${waNo(C.whatsapp)}" target="_blank" rel="noopener">WhatsApp</a>`,
